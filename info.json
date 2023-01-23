@@ -1,0 +1,134 @@
+{
+    "name": "URLhaus",
+    "version": "1.0.0",
+    "label": "URLhaus",
+    "description": "URLhaus Threat feed for bad urls",
+    "publisher": "",
+    "icon_small_name": "200.png",
+    "icon_large_name": "200.png",
+    "category": "",
+    "configuration": {
+        "fields": [
+            {
+                "title": "Submit URL Address",
+                "type": "text",
+                "name": "server_fqhn",
+                "required": true,
+                "visible": true,
+                "editable": true
+            },
+            {
+                "title": "Search IOC Address",
+                "type": "text",
+                "name": "query_server_fqhn",
+                "required": true,
+                "visible": true,
+                "editable": true
+            },
+            {
+                "title": "URLhaus API KEY",
+                "type": "password",
+                "name": "apikey_server_fqhn",
+                "required": true,
+                "visible": true,
+                "editable": true
+            }
+        ]
+    },
+    "operations": [
+        {
+            "operation": "query_ip",
+            "title": "Get IP Reputation",
+            "description": "Retrieves a report for the IP addresses submitted, to determine if they are suspicious.",
+            "enabled": true,
+            "category": "investigation",
+            "annotation": "ip_reputation",
+            "TEMPLATE_NOTE6": "--OUTPUT SCHEMA IS A SAMPLE RESPONSE FROM THIS CONNECTOR ACTION--",
+            "output_schema": {},
+            "parameters": [
+                {
+                    "title": "IP",
+                    "type": "text",
+                    "name": "ip",
+                    "required": true,
+                    "visible": true,
+                    "editable": true
+                }
+            ],
+            "open": false
+        },
+        {
+            "operation": "query_domain",
+            "title": "Get Domain Reputation",
+            "description": "Retrieves a report for the domains submitted, to determine if they are suspicious.",
+            "category": "investigation",
+            "annotation": "domain_reputation",
+            "output_schema": {},
+            "enabled": true,
+            "parameters": [
+                {
+                    "title": "Domain",
+                    "type": "text",
+                    "name": "domain",
+                    "required": true,
+                    "visible": true,
+                    "editable": true
+                }
+            ],
+            "open": false
+        },
+        {
+            "operation": "query_hash",
+            "title": "Get Filehash Reputation",
+            "description": "Retrieves a report for the md5 / sha256 hash submitted, to determine if they are suspicious.",
+            "category": "investigation",
+            "annotation": "query_hash",
+            "output_schema": {},
+            "enabled": true,
+            "parameters": [
+                {
+                    "title": "Hash",
+                    "type": "text",
+                    "name": "hash",
+                    "required": true,
+                    "visible": true,
+                    "editable": true
+                }
+            ],
+            "open": false
+        },
+        {
+            "operation": "query_url",
+            "title": "Get URL Reputation",
+            "description": "Retrieves a report for the URL submitted, to determine if they are suspicious.",
+            "category": "investigation",
+            "annotation": "query_url",
+            "output_schema": {},
+            "enabled": true,
+            "parameters": [
+                {
+                    "title": "URL",
+                    "type": "text",
+                    "name": "url",
+                    "required": true,
+                    "visible": true,
+                    "editable": true
+                }
+            ],
+            "open": false
+        },
+        {
+            "operation": "get_feed",
+            "title": "Get URL Feed for ingestion",
+            "description": "Retrieves a report for the URL submitted, to determine if they are suspicious.",
+            "category": "investigation",
+            "annotation": "get_feed",
+            "output_schema": [],
+            "enabled": true,
+            "parameters": [],
+            "open": false
+        }
+    ],
+    "forked_from": false,
+    "cs_approved": false
+}
