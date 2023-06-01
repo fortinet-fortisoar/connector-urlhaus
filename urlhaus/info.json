@@ -1,0 +1,415 @@
+{
+    "name": "urlhaus",
+    "version": "1.0.1",
+    "label": "Url Haus",
+    "description": "URLhaus is a project operated by abuse.ch. The purpose of the project is to collect, track and share malware URLs, helping network administrators and security analysts to protect their network and customers from cyber threats.",
+    "publisher": "Fortinet SE",
+    "icon_small_name": "urlhaus.png",
+    "icon_large_name": "urlhaus.png",
+    "category": "Threat Intelligence",
+    "configuration": {
+        "fields": [
+            {
+                "title": "Server URL",
+                "type": "text",
+                "name": "server_url",
+                "required": true,
+                "visible": true,
+                "editable": true,
+                "value": "https://urlhaus-api.abuse.ch"
+            }
+        ]
+    },
+    "operations": [
+        {
+            "operation": "get_hash_details",
+            "title": "Get Hash Details ",
+            "description": "To retrieve information about an Hash",
+            "category": "investigation",
+            "annotation": "get_hash_details",
+            "output_schema": {
+                "query_status": "",
+                "md5_hash": "",
+                "sha256_hash": "",
+                "file_type": "",
+                "file_size": "",
+                "signature": "",
+                "firstseen": "",
+                "lastseen": "",
+                "url_count": "",
+                "urlhaus_download": "",
+                "virustotal": "",
+                "imphash": "",
+                "ssdeep": "",
+                "tlsh": "",
+                "urls": [
+                    {
+                        "url_id": "",
+                        "url": "",
+                        "url_status": "",
+                        "urlhaus_reference": "",
+                        "filename": "",
+                        "firstseen": "",
+                        "lastseen": ""
+                    }
+                ]
+            },
+            "parameters": [
+                {
+                    "title": "Hash Name",
+                    "type": "text",
+                    "name": "hash",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "value": ""
+                }
+            ],
+            "enabled": true,
+            "open": false
+        },
+        {
+            "operation": "get_recent_URLs",
+            "title": "Get Recent Urls ",
+            "description": "To retrieve a list of recent URLs (recent additions made to URLhaus)",
+            "category": "investigation",
+            "annotation": "get_recent_URLs",
+            "output_schema": {
+                "query_status": "",
+                "urls": [
+                    {
+                        "id": "",
+                        "urlhaus_reference": "",
+                        "url": "",
+                        "url_status": "",
+                        "host": "",
+                        "date_added": "",
+                        "threat": "",
+                        "blacklists": {
+                            "spamhaus_dbl": "",
+                            "surbl": ""
+                        },
+                        "reporter": "",
+                        "larted": "",
+                        "tags": [
+                            "",
+                            ""
+                        ]
+                    }
+                ]
+            },
+            "parameters": [
+                {
+                    "title": "Limit",
+                    "type": "text",
+                    "name": "limit",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "value": ""
+                }
+            ],
+            "enabled": true,
+            "open": false
+        },
+        {
+            "operation": "get_tag",
+            "title": "Query Tag Information",
+            "description": "To retrieve information about a Specific tag,",
+            "category": "investigation",
+            "annotation": "get_tag",
+            "output_schema": {
+                "query_status": "",
+                "firstseen": "",
+                "lastseen": "",
+                "url_count": "",
+                "urls": [
+                    {
+                        "url_id": "",
+                        "url": "",
+                        "url_status": "",
+                        "dateadded": "",
+                        "reporter": "",
+                        "threat": "",
+                        "tags": [
+                            "",
+                            ""
+                        ],
+                        "urlhaus_reference": ""
+                    }
+                ]
+            },
+            "parameters": [
+                {
+                    "title": "Tag",
+                    "type": "text",
+                    "name": "tag",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "value": ""
+                }
+            ],
+            "enabled": true,
+            "open": false
+        },
+        {
+            "operation": "get_UrlDetails_id",
+            "title": "Get Urls Details Via ID ",
+            "description": "To retrieve information about an URL via specific ID",
+            "category": "investigation",
+            "annotation": "get_UrlDetails_id",
+            "output_schema": {
+                "query_status": "",
+                "id": "",
+                "urlhaus_reference": "",
+                "url": "",
+                "url_status": "",
+                "host": "",
+                "date_added": "",
+                "last_online": "",
+                "threat": "",
+                "blacklists": {
+                    "spamhaus_dbl": "",
+                    "surbl": ""
+                },
+                "reporter": "",
+                "larted": "",
+                "takedown_time_seconds": "",
+                "tags": [
+                    "",
+                    ""
+                ],
+                "payloads": [
+                    {
+                        "firstseen": "",
+                        "filename": "",
+                        "file_type": "",
+                        "response_size": "",
+                        "response_md5": "",
+                        "response_sha256": "",
+                        "urlhaus_download": "",
+                        "signature": "",
+                        "virustotal": ""
+                    }
+                ]
+            },
+            "parameters": [
+                {
+                    "title": "Url ID",
+                    "type": "text",
+                    "name": "urlid",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "value": ""
+                }
+            ],
+            "enabled": true,
+            "open": false
+        },
+        {
+            "operation": "get_signature",
+            "title": "Query Signature Information ",
+            "description": "URLhaus tries to identify the malware family of a payload (malware sample) served by malware URLs. Unlink tags, the signature is something that the reporter of the malware URL can not influence. To retrieve information about a signature",
+            "category": "investigation",
+            "annotation": "get_signature",
+            "output_schema": {
+                "query_status": "",
+                "firstseen": "",
+                "lastseen": "",
+                "url_count": "",
+                "payload_count": "",
+                "urls": [
+                    {
+                        "url_id": "",
+                        "url": "",
+                        "url_status": "",
+                        "firstseen": "",
+                        "lastseen": "",
+                        "filename": "",
+                        "file_type": "",
+                        "file_size": "",
+                        "md5_hash": "",
+                        "sha256_hash": "",
+                        "virustotal": {
+                            "result": "",
+                            "percent": "",
+                            "link": ""
+                        },
+                        "imphash": "",
+                        "ssdeep": "",
+                        "tlsh": "",
+                        "urlhaus_reference": "",
+                        "urlhaus_download": ""
+                    }
+                ]
+            },
+            "parameters": [
+                {
+                    "title": "Signature",
+                    "type": "text",
+                    "name": "signature",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "value": ""
+                }
+            ],
+            "enabled": true,
+            "open": false
+        },
+        {
+            "operation": "get_recent_Payload",
+            "title": "Get Recent Payloads ",
+            "description": "To retrieve a list of recent payloads (recent payloads seen by URLhaus)",
+            "category": "investigation",
+            "annotation": "get_recent_Payload",
+            "output_schema": {
+                "payloads": [
+                    {
+                        "md5_hash": "",
+                        "sha256_hash": "",
+                        "file_type": "",
+                        "file_size": "",
+                        "signature": "",
+                        "firstseen": "",
+                        "urlhaus_download": "",
+                        "virustotal": {
+                            "result": "",
+                            "percent": "",
+                            "link": ""
+                        },
+                        "imphash": "",
+                        "ssdeep": "",
+                        "tlsh": ""
+                    }
+                ]
+            },
+            "parameters": [
+                {
+                    "title": "Limit",
+                    "type": "text",
+                    "name": "limit",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "value": ""
+                }
+            ],
+            "enabled": true,
+            "open": false
+        },
+        {
+            "operation": "get_host_details",
+            "title": "Get Host Details ",
+            "description": "To retrieve information about a specific host",
+            "category": "investigation",
+            "annotation": "get_host_details",
+            "output_schema": {
+                "query_status": "",
+                "urlhaus_reference": "",
+                "host": "",
+                "firstseen": "",
+                "url_count": "",
+                "blacklists": {
+                    "spamhaus_dbl": "",
+                    "surbl": ""
+                },
+                "urls": [
+                    {
+                        "id": "",
+                        "urlhaus_reference": "",
+                        "url": "",
+                        "url_status": "",
+                        "date_added": "",
+                        "threat": "",
+                        "reporter": "",
+                        "larted": "",
+                        "takedown_time_seconds": "",
+                        "tags": [
+                            ""
+                        ]
+                    }
+                ]
+            },
+            "parameters": [
+                {
+                    "title": "Host",
+                    "type": "text",
+                    "name": "host",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "value": ""
+                }
+            ],
+            "enabled": true,
+            "open": false
+        },
+        {
+            "description": "To retrieve information about an URL",
+            "operation": "get_url_details",
+            "title": "Get Url Details",
+            "category": "investigation",
+            "annotation": "get_url_details",
+            "output_schema": {
+                "query_status": "",
+                "id": "",
+                "urlhaus_reference": "",
+                "url": "",
+                "url_status": "",
+                "host": "",
+                "date_added": "",
+                "last_online": "",
+                "threat": "",
+                "blacklists": {
+                    "spamhaus_dbl": "",
+                    "surbl": ""
+                },
+                "reporter": "",
+                "larted": "",
+                "takedown_time_seconds": "",
+                "tags": [],
+                "payloads": [
+                    {
+                        "firstseen": "",
+                        "filename": "",
+                        "file_type": "",
+                        "response_size": "",
+                        "response_md5": "",
+                        "response_sha256": "",
+                        "urlhaus_download": "",
+                        "signature": "",
+                        "virustotal": {
+                            "result": "",
+                            "percent": "",
+                            "link": ""
+                        },
+                        "imphash": "",
+                        "ssdeep": "",
+                        "tlsh": ""
+                    }
+                ]
+            },
+            "parameters": [
+                {
+                    "title": "URL",
+                    "type": "text",
+                    "name": "URL",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "value": ""
+                }
+            ],
+            "enabled": true,
+            "open": false
+        }
+    ],
+    "forked_from": "",
+    "cs_approved": true,
+    "cs_compatible": true,
+    "help_online": "",
+    "icon_medium_name": "urlhaus.png"
+}
