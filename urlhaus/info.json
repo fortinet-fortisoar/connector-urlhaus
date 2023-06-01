@@ -3,7 +3,7 @@
     "version": "1.0.1",
     "label": "Url Haus",
     "description": "URLhaus is a project operated by abuse.ch. The purpose of the project is to collect, track and share malware URLs, helping network administrators and security analysts to protect their network and customers from cyber threats.",
-    "publisher": "Community",
+    "publisher": "Fortinet SE",
     "icon_small_name": "urlhaus.png",
     "icon_large_name": "urlhaus.png",
     "category": "Threat Intelligence",
@@ -56,7 +56,7 @@
             },
             "parameters": [
                 {
-                    "title": "Hash name",
+                    "title": "Hash Name",
                     "type": "text",
                     "name": "hash",
                     "required": true,
@@ -114,7 +114,7 @@
         },
         {
             "operation": "get_tag",
-            "title": "Query Tag information   ",
+            "title": "Query Tag Information",
             "description": "To retrieve information about a Specific tag,",
             "category": "investigation",
             "annotation": "get_tag",
@@ -155,7 +155,7 @@
         },
         {
             "operation": "get_UrlDetails_id",
-            "title": "Get Urls Details via ID ",
+            "title": "Get Urls Details Via ID ",
             "description": "To retrieve information about an URL via specific ID",
             "category": "investigation",
             "annotation": "get_UrlDetails_id",
@@ -210,11 +210,41 @@
         },
         {
             "operation": "get_signature",
-            "title": "Query signature information ",
+            "title": "Query Signature Information ",
             "description": "URLhaus tries to identify the malware family of a payload (malware sample) served by malware URLs. Unlink tags, the signature is something that the reporter of the malware URL can not influence. To retrieve information about a signature",
             "category": "investigation",
             "annotation": "get_signature",
-            "output_schema": {},
+            "output_schema": {
+                "query_status": "",
+                "firstseen": "",
+                "lastseen": "",
+                "url_count": "",
+                "payload_count": "",
+                "urls": [
+                    {
+                        "url_id": "",
+                        "url": "",
+                        "url_status": "",
+                        "firstseen": "",
+                        "lastseen": "",
+                        "filename": "",
+                        "file_type": "",
+                        "file_size": "",
+                        "md5_hash": "",
+                        "sha256_hash": "",
+                        "virustotal": {
+                            "result": "",
+                            "percent": "",
+                            "link": ""
+                        },
+                        "imphash": "",
+                        "ssdeep": "",
+                        "tlsh": "",
+                        "urlhaus_reference": "",
+                        "urlhaus_download": ""
+                    }
+                ]
+            },
             "parameters": [
                 {
                     "title": "Signature",
@@ -273,7 +303,7 @@
         {
             "operation": "get_host_details",
             "title": "Get Host Details ",
-            "description": " To retrieve information about a specific host",
+            "description": "To retrieve information about a specific host",
             "category": "investigation",
             "annotation": "get_host_details",
             "output_schema": {
@@ -305,7 +335,7 @@
             },
             "parameters": [
                 {
-                    "title": "host",
+                    "title": "Host",
                     "type": "text",
                     "name": "host",
                     "required": true,
