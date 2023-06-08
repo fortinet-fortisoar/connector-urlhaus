@@ -1,11 +1,11 @@
 {
     "name": "urlhaus",
-    "version": "1.0.1",
-    "label": "Url Haus",
+    "version": "1.0.0",
+    "label": "Urlhaus",
     "description": "URLhaus is a project operated by abuse.ch. The purpose of the project is to collect, track and share malware URLs, helping network administrators and security analysts to protect their network and customers from cyber threats.",
     "publisher": "Fortinet SE",
-    "icon_small_name": "urlhaus.png",
-    "icon_large_name": "urlhaus.png",
+    "icon_small_name": "small.png",
+    "icon_large_name": "large.png",
     "category": "Threat Intelligence",
     "configuration": {
         "fields": [
@@ -62,6 +62,7 @@
                     "required": true,
                     "visible": true,
                     "editable": true,
+                    "description": "Specify the hash details whose information you want to retrieve from the URLhaus.",
                     "value": ""
                 }
             ],
@@ -103,6 +104,7 @@
                     "title": "Limit",
                     "type": "text",
                     "name": "limit",
+                    "description": "Specify the number of records you want to fetch from the URLhaus",
                     "required": true,
                     "visible": true,
                     "editable": true,
@@ -144,6 +146,7 @@
                     "title": "Tag",
                     "type": "text",
                     "name": "tag",
+                    "description": "Specify the tag whose details you want to retrieve from the URLhaus",
                     "required": true,
                     "visible": true,
                     "editable": true,
@@ -196,9 +199,10 @@
             },
             "parameters": [
                 {
-                    "title": "Url ID",
+                    "title": "URL ID",
                     "type": "text",
                     "name": "urlid",
+                    "description": "Specify the URL ID whose details you want to retrieve from URLhaus",
                     "required": true,
                     "visible": true,
                     "editable": true,
@@ -210,7 +214,7 @@
         },
         {
             "operation": "get_signature",
-            "title": "Query Signature Information ",
+            "title": "Query Signature Information",
             "description": "URLhaus tries to identify the malware family of a payload (malware sample) served by malware URLs. Unlink tags, the signature is something that the reporter of the malware URL can not influence. To retrieve information about a signature",
             "category": "investigation",
             "annotation": "get_signature",
@@ -250,6 +254,7 @@
                     "title": "Signature",
                     "type": "text",
                     "name": "signature",
+                    "description": "Specify the signature whose details you want to retrieve from URLhaus",
                     "required": true,
                     "visible": true,
                     "editable": true,
@@ -292,6 +297,7 @@
                     "type": "text",
                     "name": "limit",
                     "required": true,
+                    "description": "Specify the number of records you want to fetch from the URLhaus",
                     "visible": true,
                     "editable": true,
                     "value": ""
@@ -339,6 +345,7 @@
                     "type": "text",
                     "name": "host",
                     "required": true,
+                    "description": "Specify the host you whose details you want to retrieve from URLhaus",
                     "visible": true,
                     "editable": true,
                     "value": ""
@@ -397,6 +404,7 @@
                     "title": "URL",
                     "type": "text",
                     "name": "URL",
+                    "description": "Specify the URL whose details you want to retrieve from the URLhaus",
                     "required": true,
                     "visible": true,
                     "editable": true,
@@ -408,7 +416,7 @@
         }
     ],
     "forked_from": "",
-    "cs_approved": true,
+    "cs_approved": false,
     "cs_compatible": true,
     "help_online": "",
     "icon_medium_name": "urlhaus.png"
