@@ -1,6 +1,7 @@
 ## About the connector
 URLhaus is a project operated by abuse.ch. The purpose of the project is to collect, track and share malware URLs, helping network administrators and security analysts to protect their network and customers from cyber threats.
 <p>This document provides information about the Urlhaus Connector, which facilitates automated interactions, with a Urlhaus server using FortiSOAR&trade; playbooks. Add the Urlhaus Connector as a step in FortiSOAR&trade; playbooks and perform automated operations with Urlhaus.</p>
+
 ### Version information
 
 Connector Version: 1.0.0
@@ -26,6 +27,7 @@ For the procedure to configure a connector, click [here](https://docs.fortinet.c
 <p>In FortiSOAR&trade;, on the Connectors page, click the <strong>Urlhaus</strong> connector row (if you are in the <strong>Grid</strong> view on the Connectors page) and in the <strong>Configurations&nbsp;</strong> tab enter the required configuration details:&nbsp;</p>
 <table border=1><thead><tr><th>Parameter<br></th><th>Description<br></th></tr></thead><tbody><tr><td>Server URL<br></td><td>Specify the server URL to which you will connect and perform the automated operations.<br>
 </tbody></table>
+
 ## Actions supported by the connector
 The following automated operations can be included in playbooks and you can also use the annotations to access operations from FortiSOAR&trade; release 4.10.0 and onwards:
 <table border=1><thead><tr><th>Function<br></th><th>Description<br></th><th>Annotation and Category<br></th></tr></thead><tbody><tr><td>Get Hash Details <br></td><td>To retrieve information about an Hash<br></td><td>get_hash_details <br/>Investigation<br></td></tr>
@@ -37,10 +39,12 @@ The following automated operations can be included in playbooks and you can also
 <tr><td>Get Host Details <br></td><td>To retrieve information about a specific host<br></td><td>get_host_details <br/>Investigation<br></td></tr>
 <tr><td>Get Url Details<br></td><td>To retrieve information about an URL<br></td><td>get_url_details <br/>Investigation<br></td></tr>
 </tbody></table>
-### operation: Get Hash Details 
+
+### operation: Get Hash Details
 #### Input parameters
 <table border=1><thead><tr><th>Parameter<br></th><th>Description<br></th></tr></thead><tbody><tr><td>Hash Name<br></td><td>Specify the hash details whose information you want to retrieve from the URLhaus.<br>
 </td></tr></tbody></table>
+
 #### Output
 The output contains the following populated JSON schema:
 <code><br>{
@@ -74,6 +78,7 @@ The output contains the following populated JSON schema:
 #### Input parameters
 <table border=1><thead><tr><th>Parameter<br></th><th>Description<br></th></tr></thead><tbody><tr><td>Limit<br></td><td>Specify the number of records you want to fetch from the URLhaus<br>
 </td></tr></tbody></table>
+
 #### Output
 The output contains the following populated JSON schema:
 <code><br>{
@@ -104,6 +109,7 @@ The output contains the following populated JSON schema:
 #### Input parameters
 <table border=1><thead><tr><th>Parameter<br></th><th>Description<br></th></tr></thead><tbody><tr><td>Tag<br></td><td>Specify the tag whose details you want to retrieve from the URLhaus<br>
 </td></tr></tbody></table>
+
 #### Output
 The output contains the following populated JSON schema:
 <code><br>{
@@ -131,6 +137,7 @@ The output contains the following populated JSON schema:
 #### Input parameters
 <table border=1><thead><tr><th>Parameter<br></th><th>Description<br></th></tr></thead><tbody><tr><td>URL ID<br></td><td>Specify the URL ID whose details you want to retrieve from URLhaus<br>
 </td></tr></tbody></table>
+
 #### Output
 The output contains the following populated JSON schema:
 <code><br>{
@@ -172,6 +179,7 @@ The output contains the following populated JSON schema:
 #### Input parameters
 <table border=1><thead><tr><th>Parameter<br></th><th>Description<br></th></tr></thead><tbody><tr><td>Signature<br></td><td>Specify the signature whose details you want to retrieve from URLhaus<br>
 </td></tr></tbody></table>
+
 #### Output
 The output contains the following populated JSON schema:
 <code><br>{
@@ -209,6 +217,7 @@ The output contains the following populated JSON schema:
 #### Input parameters
 <table border=1><thead><tr><th>Parameter<br></th><th>Description<br></th></tr></thead><tbody><tr><td>Limit<br></td><td>Specify the number of records you want to fetch from the URLhaus<br>
 </td></tr></tbody></table>
+
 #### Output
 The output contains the following populated JSON schema:
 <code><br>{
@@ -236,6 +245,7 @@ The output contains the following populated JSON schema:
 #### Input parameters
 <table border=1><thead><tr><th>Parameter<br></th><th>Description<br></th></tr></thead><tbody><tr><td>Host<br></td><td>Specify the host you whose details you want to retrieve from URLhaus<br>
 </td></tr></tbody></table>
+
 #### Output
 The output contains the following populated JSON schema:
 <code><br>{
@@ -269,6 +279,7 @@ The output contains the following populated JSON schema:
 #### Input parameters
 <table border=1><thead><tr><th>Parameter<br></th><th>Description<br></th></tr></thead><tbody><tr><td>URL<br></td><td>Specify the URL whose details you want to retrieve from the URLhaus<br>
 </td></tr></tbody></table>
+
 #### Output
 The output contains the following populated JSON schema:
 <code><br>{
