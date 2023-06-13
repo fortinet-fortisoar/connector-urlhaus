@@ -2,23 +2,45 @@
   "type": "workflow_collections",
   "data": [
     {
-      "uuid": "08159974-cabb-4a7f-962a-06a0b6487005",
+      "uuid": "8e7c3625-a95e-4561-9ddd-37b2ddda79ad",
       "@type": "WorkflowCollection",
+      "name": "Sample - Urlhaus - 1.0.0",
+      "description": "URLhaus is a project operated by abuse.ch. The purpose of the project is to collect, track and share malware URLs, helping network administrators and security analysts to protect their network and customers from cyber threats.",
+      "visible": true,
+      "image": null,
+      "recordTags": [
+        "Urlhaus",
+        "urlhaus"
+      ],
       "workflows": [
         {
           "@type": "Workflow",
-          "uuid": "3a619d68-2558-4151-9a82-591fe05b9998",
-          "collection": "/api/3/workflow_collections/08159974-cabb-4a7f-962a-06a0b6487005",
+          "uuid": "094c576a-12c9-4f17-a27f-90a486c87b79",
+          "collection": "/api/3/workflow_collections/8e7c3625-a95e-4561-9ddd-37b2ddda79ad",
+          "triggerLimit": null,
+          "description": "To retrieve information about an Hash",
+          "name": "Get Hash Details ",
+          "tag": "#Urlhaus",
+          "recordTags": [
+            "Urlhaus",
+            "urlhaus"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/c1a52087-b48e-4cc0-b8cd-572a210698ce",
           "steps": [
             {
-              "uuid": "e3cfe50b-706a-4ba7-af2a-109e6a621761",
+              "uuid": "c1a52087-b48e-4cc0-b8cd-572a210698ce",
               "@type": "WorkflowStep",
-              "name": "Alerts",
+              "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "632051ce-73f2-4f88-bd6a-9eb4980dc1de",
-                "title": "RISKIQ: Get Account",
+                "route": "0ddd5fbf-a188-41bc-a7d2-e7e87df9cd1a",
+                "title": "Urlhaus: Get Hash Details ",
                 "resources": [
                   "alerts"
                 ],
@@ -28,28 +50,30 @@
                     "records": "{{vars.input.records[0]}}"
                   }
                 },
-                "singleRecordExecution": false
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
               },
               "left": "20",
               "top": "20",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
             },
             {
-              "uuid": "3e65095c-959f-45d2-a984-b5b1bb7c8c6e",
+              "uuid": "cb8ff64d-590b-422c-b6f9-4f8f5d64ebac",
               "@type": "WorkflowStep",
-              "name": "Get Account",
+              "name": "Get Hash Details ",
               "description": null,
               "status": null,
               "arguments": {
-                "name": "RISKIQ",
+                "name": "Urlhaus",
                 "config": "''",
                 "params": {
-                  "username": ""
+                  "hash": ""
                 },
                 "version": "1.0.0",
-                "connector": "risk-iq",
-                "operation": "get_account",
-                "operationTitle": "Get Account",
+                "connector": "urlhaus",
+                "operation": "get_hash_details",
+                "operationTitle": "Get Hash Details ",
                 "step_variables": {
                   "output_data": "{{vars.result}}"
                 }
@@ -59,41 +83,46 @@
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
             }
           ],
-          "triggerLimit": null,
-          "description": "Read current account metadata and settings.",
-          "name": "Get Account",
-          "tag": "#RISKIQ",
-          "isActive": false,
-          "singleRecordExecution": false,
-          "parameters": [],
-          "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/e3cfe50b-706a-4ba7-af2a-109e6a621761",
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "ac0a7b32-cbfa-4ef6-81cc-2b16840b52c1",
+              "uuid": "69d72b92-037c-4e66-a10d-92332e8c7c11",
               "label": null,
               "isExecuted": false,
-              "name": "Alerts -> Get Account",
-              "sourceStep": "/api/3/workflow_steps/e3cfe50b-706a-4ba7-af2a-109e6a621761",
-              "targetStep": "/api/3/workflow_steps/3e65095c-959f-45d2-a984-b5b1bb7c8c6e"
+              "name": "Start-> Get Hash Details ",
+              "sourceStep": "/api/3/workflow_steps/c1a52087-b48e-4cc0-b8cd-572a210698ce",
+              "targetStep": "/api/3/workflow_steps/cb8ff64d-590b-422c-b6f9-4f8f5d64ebac"
             }
           ]
         },
         {
           "@type": "Workflow",
-          "uuid": "1a3436b9-64cf-4a79-b5e9-7f8fbb492c5f",
-          "collection": "/api/3/workflow_collections/08159974-cabb-4a7f-962a-06a0b6487005",
+          "uuid": "4cb3a912-9398-4dc4-83ca-c12fd6b8ec2e",
+          "collection": "/api/3/workflow_collections/8e7c3625-a95e-4561-9ddd-37b2ddda79ad",
+          "triggerLimit": null,
+          "description": "To retrieve a list of recent URLs (recent additions made to URLhaus)",
+          "name": "Get Recent Urls ",
+          "tag": "#Urlhaus",
+          "recordTags": [
+            "Urlhaus",
+            "urlhaus"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/306a740d-b24f-43f2-8a30-d448cef34d26",
           "steps": [
             {
-              "uuid": "f36d5d4b-a389-4d42-92a5-400e99cbe872",
+              "uuid": "306a740d-b24f-43f2-8a30-d448cef34d26",
               "@type": "WorkflowStep",
-              "name": "Alerts",
+              "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "1eac1c96-1411-4ae4-a7a4-ca2839f373e8",
-                "title": "RISKIQ: Account History",
+                "route": "9e518a3b-2527-4a69-9f59-ac1b67c49ba2",
+                "title": "Urlhaus: Get Recent Urls ",
                 "resources": [
                   "alerts"
                 ],
@@ -103,30 +132,30 @@
                     "records": "{{vars.input.records[0]}}"
                   }
                 },
-                "singleRecordExecution": false
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
               },
               "left": "20",
               "top": "20",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
             },
             {
-              "uuid": "3cdc0b3a-a8b1-462d-a695-aaba43d4d741",
+              "uuid": "ad364f73-a1ad-422b-8dae-af7497d896a1",
               "@type": "WorkflowStep",
-              "name": "Account History",
+              "name": "Get Recent Urls ",
               "description": null,
               "status": null,
               "arguments": {
-                "name": "RISKIQ",
+                "name": "Urlhaus",
                 "config": "''",
                 "params": {
-                  "source": "",
-                  "focus": "",
-                  "dt": ""
+                  "limit": ""
                 },
                 "version": "1.0.0",
-                "connector": "risk-iq",
-                "operation": "account_history",
-                "operationTitle": "Account History",
+                "connector": "urlhaus",
+                "operation": "get_recent_URLs",
+                "operationTitle": "Get Recent Urls ",
                 "step_variables": {
                   "output_data": "{{vars.result}}"
                 }
@@ -136,41 +165,46 @@
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
             }
           ],
-          "triggerLimit": null,
-          "description": "Read API usage history of the account.",
-          "name": "Account History",
-          "tag": "#RISKIQ",
-          "isActive": false,
-          "singleRecordExecution": false,
-          "parameters": [],
-          "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/f36d5d4b-a389-4d42-92a5-400e99cbe872",
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "502d2868-c5a5-4790-b73b-aad71534a2a2",
+              "uuid": "49aede23-7415-42e8-aa82-6ca2b44826b7",
               "label": null,
               "isExecuted": false,
-              "name": "Alerts -> Account History",
-              "sourceStep": "/api/3/workflow_steps/f36d5d4b-a389-4d42-92a5-400e99cbe872",
-              "targetStep": "/api/3/workflow_steps/3cdc0b3a-a8b1-462d-a695-aaba43d4d741"
+              "name": "Start-> Get Recent Urls ",
+              "sourceStep": "/api/3/workflow_steps/306a740d-b24f-43f2-8a30-d448cef34d26",
+              "targetStep": "/api/3/workflow_steps/ad364f73-a1ad-422b-8dae-af7497d896a1"
             }
           ]
         },
         {
           "@type": "Workflow",
-          "uuid": "549f9259-f495-4d3d-be25-dfc8b0f3b7af",
-          "collection": "/api/3/workflow_collections/08159974-cabb-4a7f-962a-06a0b6487005",
+          "uuid": "f1566356-44ce-46d2-b46a-5ed8d2cca196",
+          "collection": "/api/3/workflow_collections/8e7c3625-a95e-4561-9ddd-37b2ddda79ad",
+          "triggerLimit": null,
+          "description": "To retrieve information about a Specific tag,",
+          "name": "Query Tag Information",
+          "tag": "#Urlhaus",
+          "recordTags": [
+            "Urlhaus",
+            "urlhaus"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/b20560ba-2419-4109-a4c7-49f896934e19",
           "steps": [
             {
-              "uuid": "c965af25-3579-4492-800e-77374279f7e6",
+              "uuid": "b20560ba-2419-4109-a4c7-49f896934e19",
               "@type": "WorkflowStep",
-              "name": "Alerts",
+              "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "684800a8-9d19-4eb9-9f67-42f847bb0a09",
-                "title": "RISKIQ: Get Reputation",
+                "route": "ccfc7de0-24f8-4334-9af5-a84658be47b0",
+                "title": "Urlhaus: Query Tag Information",
                 "resources": [
                   "alerts"
                 ],
@@ -180,28 +214,30 @@
                     "records": "{{vars.input.records[0]}}"
                   }
                 },
-                "singleRecordExecution": false
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
               },
               "left": "20",
               "top": "20",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
             },
             {
-              "uuid": "d38ef880-2995-480a-8026-245813a7e7b6",
+              "uuid": "a8bb9ef8-f629-4926-8374-97789c3b0e2d",
               "@type": "WorkflowStep",
-              "name": "Get Reputation",
+              "name": "Query Tag Information",
               "description": null,
               "status": null,
               "arguments": {
-                "name": "RISKIQ",
+                "name": "Urlhaus",
                 "config": "''",
                 "params": {
-                  "query": ""
+                  "tag": ""
                 },
                 "version": "1.0.0",
-                "connector": "risk-iq",
-                "operation": "get_reputation",
-                "operationTitle": "Get Reputation",
+                "connector": "urlhaus",
+                "operation": "get_tag",
+                "operationTitle": "Query Tag Information",
                 "step_variables": {
                   "output_data": "{{vars.result}}"
                 }
@@ -211,41 +247,46 @@
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
             }
           ],
-          "triggerLimit": null,
-          "description": "Get reputation from a given domain, host or IP.",
-          "name": "Get Reputation",
-          "tag": "#RISKIQ",
-          "isActive": false,
-          "singleRecordExecution": false,
-          "parameters": [],
-          "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/c965af25-3579-4492-800e-77374279f7e6",
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "47213421-e78a-48e7-955c-33cc1947dfe3",
+              "uuid": "0779b20c-9590-4bbf-a75f-0fe1674a9067",
               "label": null,
               "isExecuted": false,
-              "name": "Alerts -> Get Reputation",
-              "sourceStep": "/api/3/workflow_steps/c965af25-3579-4492-800e-77374279f7e6",
-              "targetStep": "/api/3/workflow_steps/d38ef880-2995-480a-8026-245813a7e7b6"
+              "name": "Start-> Query Tag Information",
+              "sourceStep": "/api/3/workflow_steps/b20560ba-2419-4109-a4c7-49f896934e19",
+              "targetStep": "/api/3/workflow_steps/a8bb9ef8-f629-4926-8374-97789c3b0e2d"
             }
           ]
         },
         {
           "@type": "Workflow",
-          "uuid": "656198dd-87cc-4632-b680-025c3f0b6b4f",
-          "collection": "/api/3/workflow_collections/08159974-cabb-4a7f-962a-06a0b6487005",
+          "uuid": "a1911f22-e0d4-45eb-b1c5-fcff79474ebc",
+          "collection": "/api/3/workflow_collections/8e7c3625-a95e-4561-9ddd-37b2ddda79ad",
+          "triggerLimit": null,
+          "description": "To retrieve information about an URL via specific ID",
+          "name": "Get Urls Details Via ID ",
+          "tag": "#Urlhaus",
+          "recordTags": [
+            "Urlhaus",
+            "urlhaus"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/c24a5f16-10d4-4e8e-b5d7-c94b110bd637",
           "steps": [
             {
-              "uuid": "7d48deb6-1493-465d-b853-f8aae6afa492",
+              "uuid": "c24a5f16-10d4-4e8e-b5d7-c94b110bd637",
               "@type": "WorkflowStep",
-              "name": "Alerts",
+              "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "b65f05da-5259-4341-af7e-2297c31a38b6",
-                "title": "RISKIQ: Get Enrichment",
+                "route": "90bb079f-0dfa-4f09-ac21-56bae57b25cf",
+                "title": "Urlhaus: Get Urls Details Via ID ",
                 "resources": [
                   "alerts"
                 ],
@@ -255,28 +296,30 @@
                     "records": "{{vars.input.records[0]}}"
                   }
                 },
-                "singleRecordExecution": false
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
               },
               "left": "20",
               "top": "20",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
             },
             {
-              "uuid": "8470e794-e747-450d-ba71-b6712446a12d",
+              "uuid": "ff1229d2-6adb-4841-bb98-765ac1d023bf",
               "@type": "WorkflowStep",
-              "name": "Get Enrichment",
+              "name": "Get Urls Details Via ID ",
               "description": null,
               "status": null,
               "arguments": {
-                "name": "RISKIQ",
+                "name": "Urlhaus",
                 "config": "''",
                 "params": {
-                  "query": ""
+                  "urlid": ""
                 },
                 "version": "1.0.0",
-                "connector": "risk-iq",
-                "operation": "get_enrichment",
-                "operationTitle": "Get Enrichment",
+                "connector": "urlhaus",
+                "operation": "get_UrlDetails_id",
+                "operationTitle": "Get Urls Details Via ID ",
                 "step_variables": {
                   "output_data": "{{vars.result}}"
                 }
@@ -286,41 +329,46 @@
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
             }
           ],
-          "triggerLimit": null,
-          "description": "Get enrichment information from a given domain, host or IP.",
-          "name": "Get Enrichment",
-          "tag": "#RISKIQ",
-          "isActive": false,
-          "singleRecordExecution": false,
-          "parameters": [],
-          "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/7d48deb6-1493-465d-b853-f8aae6afa492",
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "bd80fe01-498e-489c-8225-1de45ed5e678",
+              "uuid": "a9d0f0af-ee22-43df-8117-c0435d9c9c9e",
               "label": null,
               "isExecuted": false,
-              "name": "Alerts -> Get Enrichment",
-              "sourceStep": "/api/3/workflow_steps/7d48deb6-1493-465d-b853-f8aae6afa492",
-              "targetStep": "/api/3/workflow_steps/8470e794-e747-450d-ba71-b6712446a12d"
+              "name": "Start-> Get Urls Details Via ID ",
+              "sourceStep": "/api/3/workflow_steps/c24a5f16-10d4-4e8e-b5d7-c94b110bd637",
+              "targetStep": "/api/3/workflow_steps/ff1229d2-6adb-4841-bb98-765ac1d023bf"
             }
           ]
         },
         {
           "@type": "Workflow",
-          "uuid": "5a7352cd-e1d9-48da-9176-f9be7618e13d",
-          "collection": "/api/3/workflow_collections/08159974-cabb-4a7f-962a-06a0b6487005",
+          "uuid": "0aef102d-474c-4c70-a048-9df793b6a4e8",
+          "collection": "/api/3/workflow_collections/8e7c3625-a95e-4561-9ddd-37b2ddda79ad",
+          "triggerLimit": null,
+          "description": "URLhaus tries to identify the malware family of a payload (malware sample) served by malware URLs. Unlink tags, the signature is something that the reporter of the malware URL can not influence. To retrieve information about a signature",
+          "name": "Query Signature Information",
+          "tag": "#Urlhaus",
+          "recordTags": [
+            "Urlhaus",
+            "urlhaus"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/d5d937e4-f5ee-495f-98c9-140f8a87cfdf",
           "steps": [
             {
-              "uuid": "6cfa4571-9d06-4974-9d47-00fe6fe9c22f",
+              "uuid": "d5d937e4-f5ee-495f-98c9-140f8a87cfdf",
               "@type": "WorkflowStep",
-              "name": "Alerts",
+              "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "4af0fa99-73c7-4240-8c69-cabff0033a97",
-                "title": "RISKIQ: Get Enrichment for Malware",
+                "route": "a6f36e13-5ac8-4d88-9eae-a6f86c2c9fcd",
+                "title": "Urlhaus: Query Signature Information",
                 "resources": [
                   "alerts"
                 ],
@@ -330,28 +378,30 @@
                     "records": "{{vars.input.records[0]}}"
                   }
                 },
-                "singleRecordExecution": false
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
               },
               "left": "20",
               "top": "20",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
             },
             {
-              "uuid": "5066cdc5-d29b-4c8e-83fc-ab463aede2e9",
+              "uuid": "ec400ad1-fce0-4c6b-9cfa-87233234f119",
               "@type": "WorkflowStep",
-              "name": "Get Enrichment for Malware",
+              "name": "Query Signature Information",
               "description": null,
               "status": null,
               "arguments": {
-                "name": "RISKIQ",
+                "name": "Urlhaus",
                 "config": "''",
                 "params": {
-                  "query": ""
+                  "signature": ""
                 },
                 "version": "1.0.0",
-                "connector": "risk-iq",
-                "operation": "get_enrichment_malware",
-                "operationTitle": "Get Enrichment for Malware",
+                "connector": "urlhaus",
+                "operation": "get_signature",
+                "operationTitle": "Query Signature Information",
                 "step_variables": {
                   "output_data": "{{vars.result}}"
                 }
@@ -361,41 +411,46 @@
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
             }
           ],
-          "triggerLimit": null,
-          "description": "Get enrichment information from a given domain, host or IP.",
-          "name": "Get Enrichment for Malware",
-          "tag": "#RISKIQ",
-          "isActive": false,
-          "singleRecordExecution": false,
-          "parameters": [],
-          "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/6cfa4571-9d06-4974-9d47-00fe6fe9c22f",
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "b1adaad1-7c35-4763-aa22-09576d345f92",
+              "uuid": "c0f5c04b-f788-4ca4-8a7b-e8c2172e87f2",
               "label": null,
               "isExecuted": false,
-              "name": "Alerts -> Get Enrichment for Malware",
-              "sourceStep": "/api/3/workflow_steps/6cfa4571-9d06-4974-9d47-00fe6fe9c22f",
-              "targetStep": "/api/3/workflow_steps/5066cdc5-d29b-4c8e-83fc-ab463aede2e9"
+              "name": "Start-> Query Signature Information",
+              "sourceStep": "/api/3/workflow_steps/d5d937e4-f5ee-495f-98c9-140f8a87cfdf",
+              "targetStep": "/api/3/workflow_steps/ec400ad1-fce0-4c6b-9cfa-87233234f119"
             }
           ]
         },
         {
           "@type": "Workflow",
-          "uuid": "d0425b2b-2dcb-4068-a986-ea5797b88b8a",
-          "collection": "/api/3/workflow_collections/08159974-cabb-4a7f-962a-06a0b6487005",
+          "uuid": "0d9dfe80-68b5-4827-a873-384991c9ac7f",
+          "collection": "/api/3/workflow_collections/8e7c3625-a95e-4561-9ddd-37b2ddda79ad",
+          "triggerLimit": null,
+          "description": "To retrieve a list of recent payloads (recent payloads seen by URLhaus)",
+          "name": "Get Recent Payloads ",
+          "tag": "#Urlhaus",
+          "recordTags": [
+            "Urlhaus",
+            "urlhaus"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/7915ea16-82a8-4055-8ea4-252bc49ee67b",
           "steps": [
             {
-              "uuid": "2a9e0d33-841c-410b-80d2-0833f47f1b47",
+              "uuid": "7915ea16-82a8-4055-8ea4-252bc49ee67b",
               "@type": "WorkflowStep",
-              "name": "Alerts",
+              "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "1b92d7e4-572b-4bea-b9d9-2b112d035244",
-                "title": "RISKIQ: Get Enrichment for OSINT",
+                "route": "1e354181-6d18-4c3a-ba57-04f8e0efad0d",
+                "title": "Urlhaus: Get Recent Payloads ",
                 "resources": [
                   "alerts"
                 ],
@@ -405,28 +460,30 @@
                     "records": "{{vars.input.records[0]}}"
                   }
                 },
-                "singleRecordExecution": false
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
               },
               "left": "20",
               "top": "20",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
             },
             {
-              "uuid": "ee02e1b7-25b6-4a12-90ce-f424e2925a76",
+              "uuid": "fb0a13a6-0c08-4156-a272-a6b26a25556f",
               "@type": "WorkflowStep",
-              "name": "Get Enrichment for OSINT",
+              "name": "Get Recent Payloads ",
               "description": null,
               "status": null,
               "arguments": {
-                "name": "RISKIQ",
+                "name": "Urlhaus",
                 "config": "''",
                 "params": {
-                  "query": ""
+                  "limit": ""
                 },
                 "version": "1.0.0",
-                "connector": "risk-iq",
-                "operation": "get_enrichment_osint",
-                "operationTitle": "Get Enrichment for OSINT",
+                "connector": "urlhaus",
+                "operation": "get_recent_Payload",
+                "operationTitle": "Get Recent Payloads ",
                 "step_variables": {
                   "output_data": "{{vars.result}}"
                 }
@@ -436,41 +493,46 @@
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
             }
           ],
-          "triggerLimit": null,
-          "description": "Get OSINT enrichment information from a given domain, host or IP.",
-          "name": "Get Enrichment for OSINT",
-          "tag": "#RISKIQ",
-          "isActive": false,
-          "singleRecordExecution": false,
-          "parameters": [],
-          "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/2a9e0d33-841c-410b-80d2-0833f47f1b47",
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "70a51759-0297-4aaa-b6ea-e93ddfed1827",
+              "uuid": "111c34c7-7868-4128-bfb3-3f98f90bb69d",
               "label": null,
               "isExecuted": false,
-              "name": "Alerts -> Get Enrichment for OSINT",
-              "sourceStep": "/api/3/workflow_steps/2a9e0d33-841c-410b-80d2-0833f47f1b47",
-              "targetStep": "/api/3/workflow_steps/ee02e1b7-25b6-4a12-90ce-f424e2925a76"
+              "name": "Start-> Get Recent Payloads ",
+              "sourceStep": "/api/3/workflow_steps/7915ea16-82a8-4055-8ea4-252bc49ee67b",
+              "targetStep": "/api/3/workflow_steps/fb0a13a6-0c08-4156-a272-a6b26a25556f"
             }
           ]
         },
         {
           "@type": "Workflow",
-          "uuid": "935a3207-2302-4f62-8a2c-252b52255e79",
-          "collection": "/api/3/workflow_collections/08159974-cabb-4a7f-962a-06a0b6487005",
+          "uuid": "73c301e6-7118-4e16-ac18-9415e3ae6bdd",
+          "collection": "/api/3/workflow_collections/8e7c3625-a95e-4561-9ddd-37b2ddda79ad",
+          "triggerLimit": null,
+          "description": "To retrieve information about a specific host",
+          "name": "Get Host Details ",
+          "tag": "#Urlhaus",
+          "recordTags": [
+            "Urlhaus",
+            "urlhaus"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/3611127b-02b7-4a4f-8be0-db2c60a862dd",
           "steps": [
             {
-              "uuid": "715f9533-1e1a-427d-880b-e0ffa4722977",
+              "uuid": "3611127b-02b7-4a4f-8be0-db2c60a862dd",
               "@type": "WorkflowStep",
-              "name": "Alerts",
+              "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "1732f9ed-b6bd-4f7d-831e-494facc339df",
-                "title": "RISKIQ: Get Enrichment for Subdomain",
+                "route": "5220d7dd-51ab-4c3f-be52-4f3e5712126b",
+                "title": "Urlhaus: Get Host Details ",
                 "resources": [
                   "alerts"
                 ],
@@ -480,28 +542,30 @@
                     "records": "{{vars.input.records[0]}}"
                   }
                 },
-                "singleRecordExecution": false
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
               },
               "left": "20",
               "top": "20",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
             },
             {
-              "uuid": "49707e97-dd3c-4dfc-bcd1-8c0a2f7bcdae",
+              "uuid": "b0f3fd16-db64-4991-8c39-652e75db88e5",
               "@type": "WorkflowStep",
-              "name": "Get Enrichment for Subdomain",
+              "name": "Get Host Details ",
               "description": null,
               "status": null,
               "arguments": {
-                "name": "RISKIQ",
+                "name": "Urlhaus",
                 "config": "''",
                 "params": {
-                  "query": ""
+                  "host": ""
                 },
                 "version": "1.0.0",
-                "connector": "risk-iq",
-                "operation": "get_enrichment_subdomain",
-                "operationTitle": "Get Enrichment for Subdomain",
+                "connector": "urlhaus",
+                "operation": "get_host_details",
+                "operationTitle": "Get Host Details ",
                 "step_variables": {
                   "output_data": "{{vars.result}}"
                 }
@@ -511,41 +575,46 @@
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
             }
           ],
-          "triggerLimit": null,
-          "description": "Get Subdomain enrichment information from a given domain, host or IP.",
-          "name": "Get Enrichment for Subdomain",
-          "tag": "#RISKIQ",
-          "isActive": false,
-          "singleRecordExecution": false,
-          "parameters": [],
-          "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/715f9533-1e1a-427d-880b-e0ffa4722977",
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "c7cf0376-f220-4ce3-bcb9-d86cedc44bdc",
+              "uuid": "271d4310-e418-4789-af0b-06d1919a123c",
               "label": null,
               "isExecuted": false,
-              "name": "Alerts -> Get Enrichment for Subdomain",
-              "sourceStep": "/api/3/workflow_steps/715f9533-1e1a-427d-880b-e0ffa4722977",
-              "targetStep": "/api/3/workflow_steps/49707e97-dd3c-4dfc-bcd1-8c0a2f7bcdae"
+              "name": "Start-> Get Host Details ",
+              "sourceStep": "/api/3/workflow_steps/3611127b-02b7-4a4f-8be0-db2c60a862dd",
+              "targetStep": "/api/3/workflow_steps/b0f3fd16-db64-4991-8c39-652e75db88e5"
             }
           ]
         },
         {
           "@type": "Workflow",
-          "uuid": "2218c2bf-d941-4e79-8128-00d5c47379b1",
-          "collection": "/api/3/workflow_collections/08159974-cabb-4a7f-962a-06a0b6487005",
+          "uuid": "22e24dec-9e30-4669-8893-1a51ecc3d854",
+          "collection": "/api/3/workflow_collections/8e7c3625-a95e-4561-9ddd-37b2ddda79ad",
+          "triggerLimit": null,
+          "description": "To retrieve information about an URL",
+          "name": "Get Url Details",
+          "tag": "#Urlhaus",
+          "recordTags": [
+            "Urlhaus",
+            "urlhaus"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/ca57403b-dbe7-4a6b-96d1-e7262b66cefe",
           "steps": [
             {
-              "uuid": "bfc89376-a3c1-471e-80fa-abf458d7a216",
+              "uuid": "ca57403b-dbe7-4a6b-96d1-e7262b66cefe",
               "@type": "WorkflowStep",
-              "name": "Alerts",
+              "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "95e3e69d-c062-4c75-8ae5-9f14bbecb09a",
-                "title": "RISKIQ: Get Data Summary Card",
+                "route": "9661c298-c8cd-4dbe-9090-ef1ae6f19629",
+                "title": "Urlhaus: Get Url Details",
                 "resources": [
                   "alerts"
                 ],
@@ -555,28 +624,30 @@
                     "records": "{{vars.input.records[0]}}"
                   }
                 },
-                "singleRecordExecution": false
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
               },
               "left": "20",
               "top": "20",
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
             },
             {
-              "uuid": "aa92d51f-2675-4789-816d-03ea26c7912d",
+              "uuid": "1f6ae957-3319-4e43-97ff-20413ae6a12f",
               "@type": "WorkflowStep",
-              "name": "Get Data Summary Card",
+              "name": "Get Url Details",
               "description": null,
               "status": null,
               "arguments": {
-                "name": "RISKIQ",
+                "name": "Urlhaus",
                 "config": "''",
                 "params": {
-                  "query": ""
+                  "URL": ""
                 },
                 "version": "1.0.0",
-                "connector": "risk-iq",
-                "operation": "get_data_summary_card",
-                "operationTitle": "Get Data Summary Card",
+                "connector": "urlhaus",
+                "operation": "get_url_details",
+                "operationTitle": "Get Url Details",
                 "step_variables": {
                   "output_data": "{{vars.result}}"
                 }
@@ -586,332 +657,19 @@
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
             }
           ],
-          "triggerLimit": null,
-          "description": "Get Data Summary Card.",
-          "name": "Get Data Summary Card",
-          "tag": "#RISKIQ",
-          "isActive": false,
-          "singleRecordExecution": false,
-          "parameters": [],
-          "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/bfc89376-a3c1-471e-80fa-abf458d7a216",
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "04b8b825-cb4f-4bc7-8854-e34863f69a9a",
+              "uuid": "0d98d856-57eb-4dba-a503-8ea696dc59e3",
               "label": null,
               "isExecuted": false,
-              "name": "Alerts -> Get Data Summary Card",
-              "sourceStep": "/api/3/workflow_steps/bfc89376-a3c1-471e-80fa-abf458d7a216",
-              "targetStep": "/api/3/workflow_steps/aa92d51f-2675-4789-816d-03ea26c7912d"
-            }
-          ]
-        },
-        {
-          "@type": "Workflow",
-          "uuid": "383272f2-4b80-43a1-978d-797726117dc6",
-          "collection": "/api/3/workflow_collections/08159974-cabb-4a7f-962a-06a0b6487005",
-          "steps": [
-            {
-              "uuid": "41f92218-bd28-411f-bb3d-727222e3e9eb",
-              "@type": "WorkflowStep",
-              "name": "Alerts",
-              "description": null,
-              "status": null,
-              "arguments": {
-                "route": "89351e2c-67fe-42f8-baa1-00d23629ba2b",
-                "title": "RISKIQ: The Exposed Services endpoints allow you to see services on recently open ports for an IP Address.",
-                "resources": [
-                  "alerts"
-                ],
-                "inputVariables": [],
-                "step_variables": {
-                  "input": {
-                    "records": "{{vars.input.records[0]}}"
-                  }
-                },
-                "singleRecordExecution": false
-              },
-              "left": "20",
-              "top": "20",
-              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
-            },
-            {
-              "uuid": "9fb2ee59-b230-4201-a551-7adca88b719d",
-              "@type": "WorkflowStep",
-              "name": "The Exposed Services endpoints allow you to see services on recently open ports for an IP Address.",
-              "description": null,
-              "status": null,
-              "arguments": {
-                "name": "RISKIQ",
-                "config": "''",
-                "params": {
-                  "query": ""
-                },
-                "version": "1.0.0",
-                "connector": "risk-iq",
-                "operation": "ip_services",
-                "operationTitle": "The Exposed Services endpoints allow you to see services on recently open ports for an IP Address.",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
-              },
-              "left": "188",
-              "top": "120",
-              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
-            }
-          ],
-          "triggerLimit": null,
-          "description": "The Exposed Services endpoints allow you to see services on recently open ports for an IP Address..",
-          "name": "The Exposed Services endpoints allow you to see services on recently open ports for an IP Address.",
-          "tag": "#RISKIQ",
-          "isActive": false,
-          "singleRecordExecution": false,
-          "parameters": [],
-          "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/41f92218-bd28-411f-bb3d-727222e3e9eb",
-          "routes": [
-            {
-              "@type": "WorkflowRoute",
-              "uuid": "cf33cc9c-6988-4c03-83bb-92132df267ad",
-              "label": null,
-              "isExecuted": false,
-              "name": "Alerts -> The Exposed Services endpoints allow you to see services on recently open ports for an IP Address.",
-              "sourceStep": "/api/3/workflow_steps/41f92218-bd28-411f-bb3d-727222e3e9eb",
-              "targetStep": "/api/3/workflow_steps/9fb2ee59-b230-4201-a551-7adca88b719d"
-            }
-          ]
-        },
-        {
-          "@type": "Workflow",
-          "uuid": "76157516-639c-4e59-81a4-3909613345ae",
-          "collection": "/api/3/workflow_collections/08159974-cabb-4a7f-962a-06a0b6487005",
-          "steps": [
-            {
-              "uuid": "50d4f061-d713-4a07-b42a-3ce9e5ea61db",
-              "@type": "WorkflowStep",
-              "name": "Alerts",
-              "description": null,
-              "status": null,
-              "arguments": {
-                "route": "b6b2fc5d-e853-4495-9859-edbfd59d5b9a",
-                "title": "RISKIQ: The domains and IPs being queried.",
-                "resources": [
-                  "alerts"
-                ],
-                "inputVariables": [],
-                "step_variables": {
-                  "input": {
-                    "records": "{{vars.input.records[0]}}"
-                  }
-                },
-                "singleRecordExecution": false
-              },
-              "left": "20",
-              "top": "20",
-              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
-            },
-            {
-              "uuid": "f7d46bdd-c11b-4d33-ba97-ae7dd46964d3",
-              "@type": "WorkflowStep",
-              "name": "The domains and IPs being queried.",
-              "description": null,
-              "status": null,
-              "arguments": {
-                "name": "RISKIQ",
-                "config": "''",
-                "params": {
-                  "query": ""
-                },
-                "version": "1.0.0",
-                "connector": "risk-iq",
-                "operation": "bulk_enrichment",
-                "operationTitle": "The domains and IPs being queried.",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
-              },
-              "left": "188",
-              "top": "120",
-              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
-            }
-          ],
-          "triggerLimit": null,
-          "description": "The domains and IPs being queried.",
-          "name": "The domains and IPs being queried.",
-          "tag": "#RISKIQ",
-          "isActive": false,
-          "singleRecordExecution": false,
-          "parameters": [],
-          "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/50d4f061-d713-4a07-b42a-3ce9e5ea61db",
-          "routes": [
-            {
-              "@type": "WorkflowRoute",
-              "uuid": "370d81f7-8025-4e6b-8499-1ce52e07481c",
-              "label": null,
-              "isExecuted": false,
-              "name": "Alerts -> The domains and IPs being queried.",
-              "sourceStep": "/api/3/workflow_steps/50d4f061-d713-4a07-b42a-3ce9e5ea61db",
-              "targetStep": "/api/3/workflow_steps/f7d46bdd-c11b-4d33-ba97-ae7dd46964d3"
-            }
-          ]
-        },
-        {
-          "@type": "Workflow",
-          "uuid": "0f4d2373-d06a-4456-8257-976f99db6c3a",
-          "collection": "/api/3/workflow_collections/08159974-cabb-4a7f-962a-06a0b6487005",
-          "steps": [
-            {
-              "uuid": "d9abed4c-69fb-45c6-abea-740ee4bd8a74",
-              "@type": "WorkflowStep",
-              "name": "Alerts",
-              "description": null,
-              "status": null,
-              "arguments": {
-                "route": "8b35bc28-80bb-4bcd-b7ee-cd58ab9ea396",
-                "title": "RISKIQ: The domains and IPs being queried.",
-                "resources": [
-                  "alerts"
-                ],
-                "inputVariables": [],
-                "step_variables": {
-                  "input": {
-                    "records": "{{vars.input.records[0]}}"
-                  }
-                },
-                "singleRecordExecution": false
-              },
-              "left": "20",
-              "top": "20",
-              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
-            },
-            {
-              "uuid": "4e1086a5-2f09-41e7-a451-7279d5b112f3",
-              "@type": "WorkflowStep",
-              "name": "The domains and IPs being queried.",
-              "description": null,
-              "status": null,
-              "arguments": {
-                "name": "RISKIQ",
-                "config": "''",
-                "params": {
-                  "query": ""
-                },
-                "version": "1.0.0",
-                "connector": "risk-iq",
-                "operation": "bulk_enrichment_malware",
-                "operationTitle": "The domains and IPs being queried.",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
-              },
-              "left": "188",
-              "top": "120",
-              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
-            }
-          ],
-          "triggerLimit": null,
-          "description": "The domains and IPs being queried.",
-          "name": "The domains and IPs being queried.",
-          "tag": "#RISKIQ",
-          "isActive": false,
-          "singleRecordExecution": false,
-          "parameters": [],
-          "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/d9abed4c-69fb-45c6-abea-740ee4bd8a74",
-          "routes": [
-            {
-              "@type": "WorkflowRoute",
-              "uuid": "63d9b7ef-18c3-4d30-9bc9-738f048513b5",
-              "label": null,
-              "isExecuted": false,
-              "name": "Alerts -> The domains and IPs being queried.",
-              "sourceStep": "/api/3/workflow_steps/d9abed4c-69fb-45c6-abea-740ee4bd8a74",
-              "targetStep": "/api/3/workflow_steps/4e1086a5-2f09-41e7-a451-7279d5b112f3"
-            }
-          ]
-        },
-        {
-          "@type": "Workflow",
-          "uuid": "f709e7f3-1bdd-4958-8500-1e7ecb2a45cf",
-          "collection": "/api/3/workflow_collections/08159974-cabb-4a7f-962a-06a0b6487005",
-          "steps": [
-            {
-              "uuid": "519e996a-f2d4-41fb-bc8c-dc0fb97ae0b5",
-              "@type": "WorkflowStep",
-              "name": "Alerts",
-              "description": null,
-              "status": null,
-              "arguments": {
-                "route": "8f189baa-4088-4000-ae38-3786e2349165",
-                "title": "RISKIQ: The domains and IPs being queried.",
-                "resources": [
-                  "alerts"
-                ],
-                "inputVariables": [],
-                "step_variables": {
-                  "input": {
-                    "records": "{{vars.input.records[0]}}"
-                  }
-                },
-                "singleRecordExecution": false
-              },
-              "left": "20",
-              "top": "20",
-              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
-            },
-            {
-              "uuid": "8963d957-aef2-4cf2-93c7-04163f02ad4f",
-              "@type": "WorkflowStep",
-              "name": "The domains and IPs being queried.",
-              "description": null,
-              "status": null,
-              "arguments": {
-                "name": "RISKIQ",
-                "config": "''",
-                "params": {
-                  "query": ""
-                },
-                "version": "1.0.0",
-                "connector": "risk-iq",
-                "operation": "bulk_enrichment_osint",
-                "operationTitle": "The domains and IPs being queried.",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
-              },
-              "left": "188",
-              "top": "120",
-              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
-            }
-          ],
-          "triggerLimit": null,
-          "description": "The domains and IPs being queried.",
-          "name": "The domains and IPs being queried.",
-          "tag": "#RISKIQ",
-          "isActive": false,
-          "singleRecordExecution": false,
-          "parameters": [],
-          "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/519e996a-f2d4-41fb-bc8c-dc0fb97ae0b5",
-          "routes": [
-            {
-              "@type": "WorkflowRoute",
-              "uuid": "81241854-ed77-449d-9b80-dfe2512303ad",
-              "label": null,
-              "isExecuted": false,
-              "name": "Alerts -> The domains and IPs being queried.",
-              "sourceStep": "/api/3/workflow_steps/519e996a-f2d4-41fb-bc8c-dc0fb97ae0b5",
-              "targetStep": "/api/3/workflow_steps/8963d957-aef2-4cf2-93c7-04163f02ad4f"
+              "name": "Start-> Get Url Details",
+              "sourceStep": "/api/3/workflow_steps/ca57403b-dbe7-4a6b-96d1-e7262b66cefe",
+              "targetStep": "/api/3/workflow_steps/1f6ae957-3319-4e43-97ff-20413ae6a12f"
             }
           ]
         }
-      ],
-      "name": "Sample - RISKIQ - 1.0.0",
-      "description": "The RiskIQ security intelligence & analytics platform discovers your internet attack surface and delivers relevant and actionable intelligence to protect your organization.",
-      "visible": true,
-      "image": null
+      ]
     }
   ]
 }
