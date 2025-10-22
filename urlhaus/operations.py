@@ -21,6 +21,7 @@ logger = get_logger('urlhaus')
 class urlhaus(object):
     def __init__(self, config):
         self.server_url = config.get('server_url')
+        self.auth_key = config.get("auth_key")
         if not self.server_url.startswith('https://'):
             self.server_url = 'https://' + self.server_url
         if not self.server_url.endswith('/'):
@@ -29,6 +30,9 @@ class urlhaus(object):
     def make_request(self, endpoint=None, method='GET', data=None, params=None, files=None, headers=None, timeout=None):
         try:
             url = self.server_url + endpoint
+            if headers is None:
+                headers = {}
+            headers["Auth-Key"] = self.auth_key
             response = requests.request(method, url, params=params, files=files, data=data, headers=headers,
                                         timeout=timeout)
             if response.status_code == 200:
