@@ -18,6 +18,16 @@
         "editable": true,
         "description": "Specify the server URL to which you will connect and perform the automated operations.",
         "value": "https://urlhaus-api.abuse.ch"
+      },
+      {
+        "title": "Auth Key",
+        "type": "password",
+        "name": "auth_key",
+        "required": true,
+        "visible": true,
+        "editable": true,
+        "description": "Specify the Auth-Key obtained from abuse.ch authentication portal to authenticate API requests.",
+        "value": ""
       }
     ]
   },
