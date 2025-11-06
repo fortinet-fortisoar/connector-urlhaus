@@ -2,191 +2,129 @@
   "type": "workflow_collections",
   "data": [
     {
-      "uuid": "8e7c3625-a95e-4561-9ddd-37b2ddda79ad",
+      "uuid": "e5098572-ee6a-457a-bc77-cef9bf1fb078",
       "@type": "WorkflowCollection",
-      "name": "Sample - Urlhaus - 1.0.0",
-      "description": "URLhaus is a project operated by abuse.ch. The purpose of the project is to collect, track and share malware URLs, helping network administrators and security analysts to protect their network and customers from cyber threats.",
-      "visible": true,
-      "image": null,
-      "recordTags": [
-        "Urlhaus",
-        "urlhaus"
-      ],
       "workflows": [
         {
           "@type": "Workflow",
-          "uuid": "094c576a-12c9-4f17-a27f-90a486c87b79",
-          "collection": "/api/3/workflow_collections/8e7c3625-a95e-4561-9ddd-37b2ddda79ad",
-          "triggerLimit": null,
-          "description": "To retrieve information about an Hash",
-          "name": "Get Hash Details ",
-          "tag": "#Urlhaus",
-          "recordTags": [
-            "Urlhaus",
-            "urlhaus"
-          ],
-          "isActive": false,
-          "debug": false,
-          "singleRecordExecution": false,
-          "parameters": [],
-          "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/c1a52087-b48e-4cc0-b8cd-572a210698ce",
+          "uuid": "2d574031-ad1b-44ba-b426-e736208b8d93",
+          "collection": "/api/3/workflow_collections/e5098572-ee6a-457a-bc77-cef9bf1fb078",
           "steps": [
             {
-              "uuid": "c1a52087-b48e-4cc0-b8cd-572a210698ce",
+              "uuid": "1fb75546-4a24-4567-9d28-38b468ac8cb5",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "0ddd5fbf-a188-41bc-a7d2-e7e87df9cd1a",
-                "title": "Urlhaus: Get Hash Details ",
-                "resources": [
-                  "alerts"
-                ],
-                "inputVariables": [],
                 "step_variables": {
                   "input": {
-                    "records": "{{vars.input.records[0]}}"
+                    "params": []
                   }
-                },
-                "singleRecordExecution": false,
-                "noRecordExecution": true,
-                "executeButtonText": "Execute"
+                }
               },
               "left": "20",
               "top": "20",
-              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
             },
             {
-              "uuid": "cb8ff64d-590b-422c-b6f9-4f8f5d64ebac",
+              "uuid": "a49bb174-800c-4753-919f-dd44a2581b7d",
               "@type": "WorkflowStep",
               "name": "Get Hash Details ",
               "description": null,
               "status": null,
               "arguments": {
-                "name": "Urlhaus",
-                "config": "''",
+                "name": "URLhaus",
+                "config": "",
                 "params": {
                   "hash": ""
                 },
-                "version": "1.0.0",
+                "version": "1.1.0",
                 "connector": "urlhaus",
                 "operation": "get_hash_details",
-                "operationTitle": "Get Hash Details ",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
+                "operationTitle": "Get Hash Details "
               },
               "left": "188",
               "top": "120",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
             }
           ],
+          "triggerLimit": null,
+          "description": "Retrieve information about a hash from URLhaus.",
+          "name": "Get Hash Details ",
+          "tag": "#URLhaus",
+          "recordTags": [
+            "URLhaus",
+            "urlhaus"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/1fb75546-4a24-4567-9d28-38b468ac8cb5",
           "routes": [
             {
+              "uuid": "864273ba-091f-4539-aca4-bc959c2e4650",
               "@type": "WorkflowRoute",
-              "uuid": "69d72b92-037c-4e66-a10d-92332e8c7c11",
               "label": null,
               "isExecuted": false,
               "name": "Start-> Get Hash Details ",
-              "sourceStep": "/api/3/workflow_steps/c1a52087-b48e-4cc0-b8cd-572a210698ce",
-              "targetStep": "/api/3/workflow_steps/cb8ff64d-590b-422c-b6f9-4f8f5d64ebac"
+              "sourceStep": "/api/3/workflow_steps/1fb75546-4a24-4567-9d28-38b468ac8cb5",
+              "targetStep": "/api/3/workflow_steps/a49bb174-800c-4753-919f-dd44a2581b7d"
             }
           ]
         },
         {
           "@type": "Workflow",
-          "uuid": "4cb3a912-9398-4dc4-83ca-c12fd6b8ec2e",
-          "collection": "/api/3/workflow_collections/8e7c3625-a95e-4561-9ddd-37b2ddda79ad",
-          "triggerLimit": null,
-          "description": "To retrieve a list of recent URLs (recent additions made to URLhaus)",
-          "name": "Get Recent Urls ",
-          "tag": "#Urlhaus",
-          "recordTags": [
-            "Urlhaus",
-            "urlhaus"
-          ],
-          "isActive": false,
-          "debug": false,
-          "singleRecordExecution": false,
-          "parameters": [],
-          "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/306a740d-b24f-43f2-8a30-d448cef34d26",
+          "uuid": "2d9eefdc-ac52-46d3-b4b4-13fccaa81cb8",
+          "collection": "/api/3/workflow_collections/e5098572-ee6a-457a-bc77-cef9bf1fb078",
           "steps": [
             {
-              "uuid": "306a740d-b24f-43f2-8a30-d448cef34d26",
+              "uuid": "51bd1cf2-1512-4d27-8c94-48eee98ad677",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "9e518a3b-2527-4a69-9f59-ac1b67c49ba2",
-                "title": "Urlhaus: Get Recent Urls ",
-                "resources": [
-                  "alerts"
-                ],
-                "inputVariables": [],
                 "step_variables": {
                   "input": {
-                    "records": "{{vars.input.records[0]}}"
+                    "params": []
                   }
-                },
-                "singleRecordExecution": false,
-                "noRecordExecution": true,
-                "executeButtonText": "Execute"
+                }
               },
               "left": "20",
               "top": "20",
-              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
             },
             {
-              "uuid": "ad364f73-a1ad-422b-8dae-af7497d896a1",
+              "uuid": "3eb4ce71-57ee-4b1b-83ec-ac3c3a7c83ec",
               "@type": "WorkflowStep",
-              "name": "Get Recent Urls ",
+              "name": "Get Recent URLs",
               "description": null,
               "status": null,
               "arguments": {
-                "name": "Urlhaus",
-                "config": "''",
+                "name": "URLhaus",
+                "config": "",
                 "params": {
                   "limit": ""
                 },
-                "version": "1.0.0",
+                "version": "1.1.0",
                 "connector": "urlhaus",
-                "operation": "get_recent_URLs",
-                "operationTitle": "Get Recent Urls ",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
+                "operation": "get_recent_urls",
+                "operationTitle": "Get Recent URLs"
               },
               "left": "188",
               "top": "120",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
             }
           ],
-          "routes": [
-            {
-              "@type": "WorkflowRoute",
-              "uuid": "49aede23-7415-42e8-aa82-6ca2b44826b7",
-              "label": null,
-              "isExecuted": false,
-              "name": "Start-> Get Recent Urls ",
-              "sourceStep": "/api/3/workflow_steps/306a740d-b24f-43f2-8a30-d448cef34d26",
-              "targetStep": "/api/3/workflow_steps/ad364f73-a1ad-422b-8dae-af7497d896a1"
-            }
-          ]
-        },
-        {
-          "@type": "Workflow",
-          "uuid": "f1566356-44ce-46d2-b46a-5ed8d2cca196",
-          "collection": "/api/3/workflow_collections/8e7c3625-a95e-4561-9ddd-37b2ddda79ad",
           "triggerLimit": null,
-          "description": "To retrieve information about a Specific tag,",
-          "name": "Query Tag Information",
-          "tag": "#Urlhaus",
+          "description": "Retrieve a list of recently added URLs from URLhaus.",
+          "name": "Get Recent URLs",
+          "tag": "#URLhaus",
           "recordTags": [
-            "Urlhaus",
+            "URLhaus",
             "urlhaus"
           ],
           "isActive": false,
@@ -194,163 +132,139 @@
           "singleRecordExecution": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/b20560ba-2419-4109-a4c7-49f896934e19",
+          "triggerStep": "/api/3/workflow_steps/51bd1cf2-1512-4d27-8c94-48eee98ad677",
+          "routes": [
+            {
+              "uuid": "d7035230-dc86-4aa9-95d2-2a9af30c23bb",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Recent URLs",
+              "sourceStep": "/api/3/workflow_steps/51bd1cf2-1512-4d27-8c94-48eee98ad677",
+              "targetStep": "/api/3/workflow_steps/3eb4ce71-57ee-4b1b-83ec-ac3c3a7c83ec"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "3601914b-6fd2-46a6-afd7-530105774137",
+          "collection": "/api/3/workflow_collections/e5098572-ee6a-457a-bc77-cef9bf1fb078",
           "steps": [
             {
-              "uuid": "b20560ba-2419-4109-a4c7-49f896934e19",
+              "uuid": "01b07f49-7b56-4e7b-9e02-18bb51259ea2",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "ccfc7de0-24f8-4334-9af5-a84658be47b0",
-                "title": "Urlhaus: Query Tag Information",
-                "resources": [
-                  "alerts"
-                ],
-                "inputVariables": [],
                 "step_variables": {
                   "input": {
-                    "records": "{{vars.input.records[0]}}"
+                    "params": []
                   }
-                },
-                "singleRecordExecution": false,
-                "noRecordExecution": true,
-                "executeButtonText": "Execute"
+                }
               },
               "left": "20",
               "top": "20",
-              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
             },
             {
-              "uuid": "a8bb9ef8-f629-4926-8374-97789c3b0e2d",
+              "uuid": "a6faf423-50ca-483c-80a8-78c5cd8114fe",
               "@type": "WorkflowStep",
               "name": "Query Tag Information",
               "description": null,
               "status": null,
               "arguments": {
-                "name": "Urlhaus",
-                "config": "''",
+                "name": "URLhaus",
+                "config": "",
                 "params": {
                   "tag": ""
                 },
-                "version": "1.0.0",
+                "version": "1.1.0",
                 "connector": "urlhaus",
                 "operation": "get_tag",
-                "operationTitle": "Query Tag Information",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
+                "operationTitle": "Query Tag Information"
               },
               "left": "188",
               "top": "120",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
             }
           ],
+          "triggerLimit": null,
+          "description": "Retrieve details for a specific tag from URLhaus.",
+          "name": "Query Tag Information",
+          "tag": "#URLhaus",
+          "recordTags": [
+            "URLhaus",
+            "urlhaus"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/01b07f49-7b56-4e7b-9e02-18bb51259ea2",
           "routes": [
             {
+              "uuid": "df967744-c687-4d30-8231-a0004c26c288",
               "@type": "WorkflowRoute",
-              "uuid": "0779b20c-9590-4bbf-a75f-0fe1674a9067",
               "label": null,
               "isExecuted": false,
               "name": "Start-> Query Tag Information",
-              "sourceStep": "/api/3/workflow_steps/b20560ba-2419-4109-a4c7-49f896934e19",
-              "targetStep": "/api/3/workflow_steps/a8bb9ef8-f629-4926-8374-97789c3b0e2d"
+              "sourceStep": "/api/3/workflow_steps/01b07f49-7b56-4e7b-9e02-18bb51259ea2",
+              "targetStep": "/api/3/workflow_steps/a6faf423-50ca-483c-80a8-78c5cd8114fe"
             }
           ]
         },
         {
           "@type": "Workflow",
-          "uuid": "a1911f22-e0d4-45eb-b1c5-fcff79474ebc",
-          "collection": "/api/3/workflow_collections/8e7c3625-a95e-4561-9ddd-37b2ddda79ad",
-          "triggerLimit": null,
-          "description": "To retrieve information about an URL via specific ID",
-          "name": "Get Urls Details Via ID ",
-          "tag": "#Urlhaus",
-          "recordTags": [
-            "Urlhaus",
-            "urlhaus"
-          ],
-          "isActive": false,
-          "debug": false,
-          "singleRecordExecution": false,
-          "parameters": [],
-          "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/c24a5f16-10d4-4e8e-b5d7-c94b110bd637",
+          "uuid": "2a0dde38-02f5-4558-8e8a-a95de7e889b2",
+          "collection": "/api/3/workflow_collections/e5098572-ee6a-457a-bc77-cef9bf1fb078",
           "steps": [
             {
-              "uuid": "c24a5f16-10d4-4e8e-b5d7-c94b110bd637",
+              "uuid": "1e4b7f2a-707a-46de-afb2-c96a41e02b05",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "90bb079f-0dfa-4f09-ac21-56bae57b25cf",
-                "title": "Urlhaus: Get Urls Details Via ID ",
-                "resources": [
-                  "alerts"
-                ],
-                "inputVariables": [],
                 "step_variables": {
                   "input": {
-                    "records": "{{vars.input.records[0]}}"
+                    "params": []
                   }
-                },
-                "singleRecordExecution": false,
-                "noRecordExecution": true,
-                "executeButtonText": "Execute"
+                }
               },
               "left": "20",
               "top": "20",
-              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
             },
             {
-              "uuid": "ff1229d2-6adb-4841-bb98-765ac1d023bf",
+              "uuid": "8de4dceb-d959-4417-9c41-bac6f53d8a6c",
               "@type": "WorkflowStep",
-              "name": "Get Urls Details Via ID ",
+              "name": "Get URLs Details by ID",
               "description": null,
               "status": null,
               "arguments": {
-                "name": "Urlhaus",
-                "config": "''",
+                "name": "URLhaus",
+                "config": "",
                 "params": {
                   "urlid": ""
                 },
-                "version": "1.0.0",
+                "version": "1.1.0",
                 "connector": "urlhaus",
-                "operation": "get_UrlDetails_id",
-                "operationTitle": "Get Urls Details Via ID ",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
+                "operation": "get_url_details_by_id",
+                "operationTitle": "Get URLs Details by ID"
               },
               "left": "188",
               "top": "120",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
             }
           ],
-          "routes": [
-            {
-              "@type": "WorkflowRoute",
-              "uuid": "a9d0f0af-ee22-43df-8117-c0435d9c9c9e",
-              "label": null,
-              "isExecuted": false,
-              "name": "Start-> Get Urls Details Via ID ",
-              "sourceStep": "/api/3/workflow_steps/c24a5f16-10d4-4e8e-b5d7-c94b110bd637",
-              "targetStep": "/api/3/workflow_steps/ff1229d2-6adb-4841-bb98-765ac1d023bf"
-            }
-          ]
-        },
-        {
-          "@type": "Workflow",
-          "uuid": "0aef102d-474c-4c70-a048-9df793b6a4e8",
-          "collection": "/api/3/workflow_collections/8e7c3625-a95e-4561-9ddd-37b2ddda79ad",
           "triggerLimit": null,
-          "description": "URLhaus tries to identify the malware family of a payload (malware sample) served by malware URLs. Unlink tags, the signature is something that the reporter of the malware URL can not influence. To retrieve information about a signature",
-          "name": "Query Signature Information",
-          "tag": "#Urlhaus",
+          "description": "Retrieve information about a URL using its specific ID from URLhaus.",
+          "name": "Get URLs Details by ID",
+          "tag": "#URLhaus",
           "recordTags": [
-            "Urlhaus",
+            "URLhaus",
             "urlhaus"
           ],
           "isActive": false,
@@ -358,163 +272,139 @@
           "singleRecordExecution": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/d5d937e4-f5ee-495f-98c9-140f8a87cfdf",
+          "triggerStep": "/api/3/workflow_steps/1e4b7f2a-707a-46de-afb2-c96a41e02b05",
+          "routes": [
+            {
+              "uuid": "33c5fc1f-22ab-4a59-96fd-378f4258d379",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get URLs Details by ID",
+              "sourceStep": "/api/3/workflow_steps/1e4b7f2a-707a-46de-afb2-c96a41e02b05",
+              "targetStep": "/api/3/workflow_steps/8de4dceb-d959-4417-9c41-bac6f53d8a6c"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "137e8adc-9e08-451c-a0c5-c0b65a040b0d",
+          "collection": "/api/3/workflow_collections/e5098572-ee6a-457a-bc77-cef9bf1fb078",
           "steps": [
             {
-              "uuid": "d5d937e4-f5ee-495f-98c9-140f8a87cfdf",
+              "uuid": "22ac90ac-b48c-4cd9-8980-22407830e3c0",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "a6f36e13-5ac8-4d88-9eae-a6f86c2c9fcd",
-                "title": "Urlhaus: Query Signature Information",
-                "resources": [
-                  "alerts"
-                ],
-                "inputVariables": [],
                 "step_variables": {
                   "input": {
-                    "records": "{{vars.input.records[0]}}"
+                    "params": []
                   }
-                },
-                "singleRecordExecution": false,
-                "noRecordExecution": true,
-                "executeButtonText": "Execute"
+                }
               },
               "left": "20",
               "top": "20",
-              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
             },
             {
-              "uuid": "ec400ad1-fce0-4c6b-9cfa-87233234f119",
+              "uuid": "7414546e-9d83-4b3a-8b97-01a16cc52ac4",
               "@type": "WorkflowStep",
               "name": "Query Signature Information",
               "description": null,
               "status": null,
               "arguments": {
-                "name": "Urlhaus",
-                "config": "''",
+                "name": "URLhaus",
+                "config": "",
                 "params": {
                   "signature": ""
                 },
-                "version": "1.0.0",
+                "version": "1.1.0",
                 "connector": "urlhaus",
                 "operation": "get_signature",
-                "operationTitle": "Query Signature Information",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
+                "operationTitle": "Query Signature Information"
               },
               "left": "188",
               "top": "120",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
             }
           ],
+          "triggerLimit": null,
+          "description": "URLhaus identifies the malware family of payloads distributed via malicious URLs. \nSignatures, unlike tags, are automatically assigned and cannot be modified by reporters. \nUse this function to fetch information about a signature.",
+          "name": "Query Signature Information",
+          "tag": "#URLhaus",
+          "recordTags": [
+            "URLhaus",
+            "urlhaus"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/22ac90ac-b48c-4cd9-8980-22407830e3c0",
           "routes": [
             {
+              "uuid": "9a5b94c6-00f9-493b-8acd-f23b81be98b1",
               "@type": "WorkflowRoute",
-              "uuid": "c0f5c04b-f788-4ca4-8a7b-e8c2172e87f2",
               "label": null,
               "isExecuted": false,
               "name": "Start-> Query Signature Information",
-              "sourceStep": "/api/3/workflow_steps/d5d937e4-f5ee-495f-98c9-140f8a87cfdf",
-              "targetStep": "/api/3/workflow_steps/ec400ad1-fce0-4c6b-9cfa-87233234f119"
+              "sourceStep": "/api/3/workflow_steps/22ac90ac-b48c-4cd9-8980-22407830e3c0",
+              "targetStep": "/api/3/workflow_steps/7414546e-9d83-4b3a-8b97-01a16cc52ac4"
             }
           ]
         },
         {
           "@type": "Workflow",
-          "uuid": "0d9dfe80-68b5-4827-a873-384991c9ac7f",
-          "collection": "/api/3/workflow_collections/8e7c3625-a95e-4561-9ddd-37b2ddda79ad",
-          "triggerLimit": null,
-          "description": "To retrieve a list of recent payloads (recent payloads seen by URLhaus)",
-          "name": "Get Recent Payloads ",
-          "tag": "#Urlhaus",
-          "recordTags": [
-            "Urlhaus",
-            "urlhaus"
-          ],
-          "isActive": false,
-          "debug": false,
-          "singleRecordExecution": false,
-          "parameters": [],
-          "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/7915ea16-82a8-4055-8ea4-252bc49ee67b",
+          "uuid": "b5982595-d201-42fd-948e-17e0732ee352",
+          "collection": "/api/3/workflow_collections/e5098572-ee6a-457a-bc77-cef9bf1fb078",
           "steps": [
             {
-              "uuid": "7915ea16-82a8-4055-8ea4-252bc49ee67b",
+              "uuid": "34bbb738-d92b-4196-a4de-153007905b7e",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "1e354181-6d18-4c3a-ba57-04f8e0efad0d",
-                "title": "Urlhaus: Get Recent Payloads ",
-                "resources": [
-                  "alerts"
-                ],
-                "inputVariables": [],
                 "step_variables": {
                   "input": {
-                    "records": "{{vars.input.records[0]}}"
+                    "params": []
                   }
-                },
-                "singleRecordExecution": false,
-                "noRecordExecution": true,
-                "executeButtonText": "Execute"
+                }
               },
               "left": "20",
               "top": "20",
-              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
             },
             {
-              "uuid": "fb0a13a6-0c08-4156-a272-a6b26a25556f",
+              "uuid": "711ae34d-1b89-482a-b2d4-feafc5ebdd8f",
               "@type": "WorkflowStep",
-              "name": "Get Recent Payloads ",
+              "name": "Get Recent Payloads",
               "description": null,
               "status": null,
               "arguments": {
-                "name": "Urlhaus",
-                "config": "''",
+                "name": "URLhaus",
+                "config": "",
                 "params": {
                   "limit": ""
                 },
-                "version": "1.0.0",
+                "version": "1.1.0",
                 "connector": "urlhaus",
-                "operation": "get_recent_Payload",
-                "operationTitle": "Get Recent Payloads ",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
+                "operation": "get_recent_payload",
+                "operationTitle": "Get Recent Payloads"
               },
               "left": "188",
               "top": "120",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
             }
           ],
-          "routes": [
-            {
-              "@type": "WorkflowRoute",
-              "uuid": "111c34c7-7868-4128-bfb3-3f98f90bb69d",
-              "label": null,
-              "isExecuted": false,
-              "name": "Start-> Get Recent Payloads ",
-              "sourceStep": "/api/3/workflow_steps/7915ea16-82a8-4055-8ea4-252bc49ee67b",
-              "targetStep": "/api/3/workflow_steps/fb0a13a6-0c08-4156-a272-a6b26a25556f"
-            }
-          ]
-        },
-        {
-          "@type": "Workflow",
-          "uuid": "73c301e6-7118-4e16-ac18-9415e3ae6bdd",
-          "collection": "/api/3/workflow_collections/8e7c3625-a95e-4561-9ddd-37b2ddda79ad",
           "triggerLimit": null,
-          "description": "To retrieve information about a specific host",
-          "name": "Get Host Details ",
-          "tag": "#Urlhaus",
+          "description": "Retrieve a list of recently observed payloads from URLhaus.",
+          "name": "Get Recent Payloads",
+          "tag": "#URLhaus",
           "recordTags": [
-            "Urlhaus",
+            "URLhaus",
             "urlhaus"
           ],
           "isActive": false,
@@ -522,81 +412,69 @@
           "singleRecordExecution": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/3611127b-02b7-4a4f-8be0-db2c60a862dd",
+          "triggerStep": "/api/3/workflow_steps/34bbb738-d92b-4196-a4de-153007905b7e",
+          "routes": [
+            {
+              "uuid": "318bedfb-052c-411b-8c46-ab10f43eef63",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Recent Payloads",
+              "sourceStep": "/api/3/workflow_steps/34bbb738-d92b-4196-a4de-153007905b7e",
+              "targetStep": "/api/3/workflow_steps/711ae34d-1b89-482a-b2d4-feafc5ebdd8f"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "428d714e-2c27-49cb-902a-b640a6cfa422",
+          "collection": "/api/3/workflow_collections/e5098572-ee6a-457a-bc77-cef9bf1fb078",
           "steps": [
             {
-              "uuid": "3611127b-02b7-4a4f-8be0-db2c60a862dd",
+              "uuid": "ac0b3750-002e-43e6-a864-5bd1e24a277c",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "5220d7dd-51ab-4c3f-be52-4f3e5712126b",
-                "title": "Urlhaus: Get Host Details ",
-                "resources": [
-                  "alerts"
-                ],
-                "inputVariables": [],
                 "step_variables": {
                   "input": {
-                    "records": "{{vars.input.records[0]}}"
+                    "params": []
                   }
-                },
-                "singleRecordExecution": false,
-                "noRecordExecution": true,
-                "executeButtonText": "Execute"
+                }
               },
               "left": "20",
               "top": "20",
-              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
             },
             {
-              "uuid": "b0f3fd16-db64-4991-8c39-652e75db88e5",
+              "uuid": "b88dc3e6-d1a5-4ad5-a8c6-ca976f5b1100",
               "@type": "WorkflowStep",
-              "name": "Get Host Details ",
+              "name": "Get Host Details",
               "description": null,
               "status": null,
               "arguments": {
-                "name": "Urlhaus",
-                "config": "''",
+                "name": "URLhaus",
+                "config": "",
                 "params": {
                   "host": ""
                 },
-                "version": "1.0.0",
+                "version": "1.1.0",
                 "connector": "urlhaus",
                 "operation": "get_host_details",
-                "operationTitle": "Get Host Details ",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
+                "operationTitle": "Get Host Details"
               },
               "left": "188",
               "top": "120",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
             }
           ],
-          "routes": [
-            {
-              "@type": "WorkflowRoute",
-              "uuid": "271d4310-e418-4789-af0b-06d1919a123c",
-              "label": null,
-              "isExecuted": false,
-              "name": "Start-> Get Host Details ",
-              "sourceStep": "/api/3/workflow_steps/3611127b-02b7-4a4f-8be0-db2c60a862dd",
-              "targetStep": "/api/3/workflow_steps/b0f3fd16-db64-4991-8c39-652e75db88e5"
-            }
-          ]
-        },
-        {
-          "@type": "Workflow",
-          "uuid": "22e24dec-9e30-4669-8893-1a51ecc3d854",
-          "collection": "/api/3/workflow_collections/8e7c3625-a95e-4561-9ddd-37b2ddda79ad",
           "triggerLimit": null,
-          "description": "To retrieve information about an URL",
-          "name": "Get Url Details",
-          "tag": "#Urlhaus",
+          "description": "Retrieve details for a specific host from URLhaus.",
+          "name": "Get Host Details",
+          "tag": "#URLhaus",
           "recordTags": [
-            "Urlhaus",
+            "URLhaus",
             "urlhaus"
           ],
           "isActive": false,
@@ -604,71 +482,96 @@
           "singleRecordExecution": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/ca57403b-dbe7-4a6b-96d1-e7262b66cefe",
+          "triggerStep": "/api/3/workflow_steps/ac0b3750-002e-43e6-a864-5bd1e24a277c",
+          "routes": [
+            {
+              "uuid": "b60c28ad-05df-42ed-a31c-c11ee02654d1",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Host Details",
+              "sourceStep": "/api/3/workflow_steps/ac0b3750-002e-43e6-a864-5bd1e24a277c",
+              "targetStep": "/api/3/workflow_steps/b88dc3e6-d1a5-4ad5-a8c6-ca976f5b1100"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "9b52c514-d5f6-42bb-b801-ca000ad1bf4f",
+          "collection": "/api/3/workflow_collections/e5098572-ee6a-457a-bc77-cef9bf1fb078",
           "steps": [
             {
-              "uuid": "ca57403b-dbe7-4a6b-96d1-e7262b66cefe",
+              "uuid": "e4d85b13-b70f-4d3e-ab9d-9c2aa41b4354",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "9661c298-c8cd-4dbe-9090-ef1ae6f19629",
-                "title": "Urlhaus: Get Url Details",
-                "resources": [
-                  "alerts"
-                ],
-                "inputVariables": [],
                 "step_variables": {
                   "input": {
-                    "records": "{{vars.input.records[0]}}"
+                    "params": []
                   }
-                },
-                "singleRecordExecution": false,
-                "noRecordExecution": true,
-                "executeButtonText": "Execute"
+                }
               },
               "left": "20",
               "top": "20",
-              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
             },
             {
-              "uuid": "1f6ae957-3319-4e43-97ff-20413ae6a12f",
+              "uuid": "154b4dfb-c164-48e3-a970-1afc81329fb8",
               "@type": "WorkflowStep",
-              "name": "Get Url Details",
+              "name": "Get URL Details",
               "description": null,
               "status": null,
               "arguments": {
-                "name": "Urlhaus",
-                "config": "''",
+                "name": "URLhaus",
+                "config": "",
                 "params": {
                   "URL": ""
                 },
-                "version": "1.0.0",
+                "version": "1.1.0",
                 "connector": "urlhaus",
                 "operation": "get_url_details",
-                "operationTitle": "Get Url Details",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
+                "operationTitle": "Get URL Details"
               },
               "left": "188",
               "top": "120",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
             }
           ],
+          "triggerLimit": null,
+          "description": "Retrieve details for a specific URL from URLhaus.",
+          "name": "Get URL Details",
+          "tag": "#URLhaus",
+          "recordTags": [
+            "URLhaus",
+            "urlhaus"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/e4d85b13-b70f-4d3e-ab9d-9c2aa41b4354",
           "routes": [
             {
+              "uuid": "dc6d7d34-f9ea-4913-a734-9458e4b30229",
               "@type": "WorkflowRoute",
-              "uuid": "0d98d856-57eb-4dba-a503-8ea696dc59e3",
               "label": null,
               "isExecuted": false,
-              "name": "Start-> Get Url Details",
-              "sourceStep": "/api/3/workflow_steps/ca57403b-dbe7-4a6b-96d1-e7262b66cefe",
-              "targetStep": "/api/3/workflow_steps/1f6ae957-3319-4e43-97ff-20413ae6a12f"
+              "name": "Start-> Get URL Details",
+              "sourceStep": "/api/3/workflow_steps/e4d85b13-b70f-4d3e-ab9d-9c2aa41b4354",
+              "targetStep": "/api/3/workflow_steps/154b4dfb-c164-48e3-a970-1afc81329fb8"
             }
           ]
         }
+      ],
+      "name": "Sample - URLhaus - 1.1.0",
+      "description": "URLhaus is a project operated by abuse.ch. The purpose of the project is to collect, track and share malware URLs, helping network administrators and security analysts to protect their network and customers from cyber threats.",
+      "visible": true,
+      "recordTags": [
+        "URLhaus",
+        "urlhaus"
       ]
     }
   ]

@@ -1,16 +1,14 @@
 """
 Copyright start
-Copyright (C) 2008 - 2023 Fortinet Inc.
-All rights reserved.
-FORTINET CONFIDENTIAL & FORTINET PROPRIETARY SOURCE CODE
+MIT License
+Copyright (c) 2025 Fortinet Inc
 Copyright end
 """
-import base64
+
 import json
 import requests
 import urllib3
 import re
-import sys
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 from connectors.core.connector import get_logger, ConnectorError
@@ -119,7 +117,7 @@ def _check_health(config):
         raise ConnectorError('{}'.format(e))
 
 
-def get_recent_URLs(config, params):
+def get_recent_urls(config, params):
     haus = urlhaus(config)
     limit = params.get('limit')
     endpoint = '/v1/urls/recent/limit/' + str(limit)
@@ -127,7 +125,7 @@ def get_recent_URLs(config, params):
     return response
 
 
-def get_UrlDetails_id(config, params):
+def get_url_details_by_id(config, params):
     haus = urlhaus(config)
     urlid = params.get('urlid')
     endpoint = '/v1/urlid/'
@@ -160,7 +158,7 @@ def get_signature(config, params):
     return response
 
 
-def get_recent_Payload(config, params):
+def get_recent_payload(config, params):
     haus = urlhaus(config)
     limit = params.get('limit')
     endpoint = '/v1/payloads/recent/limit/' + str(limit)
@@ -173,9 +171,9 @@ operations = {
     'get_url_details': get_url_details,
     'get_hash_details': get_hash_details,
     'get_host_details': get_host_details,
-    'get_recent_URLs': get_recent_URLs,
-    'get_recent_Payload': get_recent_Payload,
-    'get_UrlDetails_id': get_UrlDetails_id,
+    'get_recent_urls': get_recent_urls,
+    'get_recent_payload': get_recent_payload,
+    'get_url_details_by_id': get_url_details_by_id,
     'get_tag': get_tag,
     'get_signature': get_signature
 }

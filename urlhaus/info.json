@@ -1,33 +1,39 @@
 {
   "name": "urlhaus",
-  "version": "1.0.0",
-  "label": "Urlhaus",
+  "version": "1.1.0",
+  "label": "URLhaus",
   "description": "URLhaus is a project operated by abuse.ch. The purpose of the project is to collect, track and share malware URLs, helping network administrators and security analysts to protect their network and customers from cyber threats.",
   "publisher": "Fortinet SE",
+  "contributor": "",
+  "cs_approved": false,
+  "cs_compatible": true,
+  "help_online": "https://github.com/fortinet-fortisoar/connector-urlhaus/blob/release/1.1.0/docs/UrlHausConnectorDoc.md",
   "icon_small_name": "small.png",
+  "icon_medium_name": "urlhaus.png",
   "icon_large_name": "large.png",
   "category": "Threat Intelligence",
   "configuration": {
     "fields": [
       {
         "title": "Server URL",
+        "description": "Specify the server URL to which you will connect and perform the automated operations.",
         "type": "text",
         "name": "server_url",
         "required": true,
         "visible": true,
         "editable": true,
-        "description": "Specify the server URL to which you will connect and perform the automated operations.",
-        "value": "https://urlhaus-api.abuse.ch"
+        "value": "https://urlhaus-api.abuse.ch",
+        "tooltip": "Specify the server URL to which you will connect and perform the automated operations."
       },
       {
         "title": "Auth Key",
+        "description": "Specify the Auth-Key obtained from abuse.ch authentication portal to authenticate API requests.",
         "type": "password",
         "name": "auth_key",
         "required": true,
         "visible": true,
         "editable": true,
-        "description": "Specify the Auth-Key obtained from abuse.ch authentication portal to authenticate API requests.",
-        "value": ""
+        "tooltip": "Specify the Auth-Key obtained from abuse.ch authentication portal to authenticate API requests."
       }
     ]
   },
@@ -35,7 +41,7 @@
     {
       "operation": "get_hash_details",
       "title": "Get Hash Details ",
-      "description": "To retrieve information about an Hash",
+      "description": "Retrieve information about a hash from URLhaus.",
       "category": "investigation",
       "annotation": "get_hash_details",
       "output_schema": {
@@ -68,24 +74,24 @@
       "parameters": [
         {
           "title": "Hash Name",
+          "description": "Specify the hash whose information you want to retrieve from the URLhaus.",
           "type": "text",
           "name": "hash",
           "required": true,
           "visible": true,
           "editable": true,
-          "description": "Specify the hash details whose information you want to retrieve from the URLhaus.",
-          "value": ""
+          "tooltip": "Specify the hash whose information you want to retrieve from the URLhaus."
         }
       ],
       "enabled": true,
       "open": false
     },
     {
-      "operation": "get_recent_URLs",
-      "title": "Get Recent Urls ",
-      "description": "To retrieve a list of recent URLs (recent additions made to URLhaus)",
+      "operation": "get_recent_urls",
+      "title": "Get Recent URLs",
+      "description": "Retrieve a list of recently added URLs from URLhaus.",
       "category": "investigation",
-      "annotation": "get_recent_URLs",
+      "annotation": "get_recent_urls",
       "output_schema": {
         "query_status": "",
         "urls": [
@@ -103,23 +109,20 @@
             },
             "reporter": "",
             "larted": "",
-            "tags": [
-              "",
-              ""
-            ]
+            "tags": []
           }
         ]
       },
       "parameters": [
         {
           "title": "Limit",
+          "description": "Specify the number of records you want to fetch from the URLhaus.",
           "type": "text",
           "name": "limit",
-          "description": "Specify the number of records you want to fetch from the URLhaus",
           "required": true,
           "visible": true,
           "editable": true,
-          "value": ""
+          "tooltip": "Specify the number of records you want to fetch from the URLhaus."
         }
       ],
       "enabled": true,
@@ -128,7 +131,7 @@
     {
       "operation": "get_tag",
       "title": "Query Tag Information",
-      "description": "To retrieve information about a Specific tag,",
+      "description": "Retrieve details for a specific tag from URLhaus.",
       "category": "investigation",
       "annotation": "get_tag",
       "output_schema": {
@@ -145,8 +148,6 @@
             "reporter": "",
             "threat": "",
             "tags": [
-              "",
-              ""
             ],
             "urlhaus_reference": ""
           }
@@ -155,24 +156,24 @@
       "parameters": [
         {
           "title": "Tag",
+          "description": "Specify the tag whose details you want to retrieve from the URLhaus.",
           "type": "text",
           "name": "tag",
-          "description": "Specify the tag whose details you want to retrieve from the URLhaus",
           "required": true,
           "visible": true,
           "editable": true,
-          "value": ""
+          "tooltip": "Specify the tag whose details you want to retrieve from the URLhaus."
         }
       ],
       "enabled": true,
       "open": false
     },
     {
-      "operation": "get_UrlDetails_id",
-      "title": "Get Urls Details Via ID ",
-      "description": "To retrieve information about an URL via specific ID",
+      "operation": "get_url_details_by_id",
+      "title": "Get URLs Details by ID",
+      "description": "Retrieve information about a URL using its specific ID from URLhaus.",
       "category": "investigation",
-      "annotation": "get_UrlDetails_id",
+      "annotation": "get_url_details_by_id",
       "output_schema": {
         "query_status": "",
         "id": "",
@@ -191,8 +192,6 @@
         "larted": "",
         "takedown_time_seconds": "",
         "tags": [
-          "",
-          ""
         ],
         "payloads": [
           {
@@ -211,13 +210,13 @@
       "parameters": [
         {
           "title": "URL ID",
+          "description": "Specify the URL ID whose details you want to retrieve from URLhaus.",
           "type": "text",
           "name": "urlid",
-          "description": "Specify the URL ID whose details you want to retrieve from URLhaus",
           "required": true,
           "visible": true,
           "editable": true,
-          "value": ""
+          "tooltip": "Specify the URL ID whose details you want to retrieve from URLhaus."
         }
       ],
       "enabled": true,
@@ -226,7 +225,7 @@
     {
       "operation": "get_signature",
       "title": "Query Signature Information",
-      "description": "URLhaus tries to identify the malware family of a payload (malware sample) served by malware URLs. Unlink tags, the signature is something that the reporter of the malware URL can not influence. To retrieve information about a signature",
+      "description": "URLhaus identifies the malware family of payloads distributed via malicious URLs. \nSignatures, unlike tags, are automatically assigned and cannot be modified by reporters. \nUse this function to fetch information about a signature.",
       "category": "investigation",
       "annotation": "get_signature",
       "output_schema": {
@@ -263,24 +262,24 @@
       "parameters": [
         {
           "title": "Signature",
+          "description": "Specify the signature whose details you want to retrieve from URLhaus.",
           "type": "text",
           "name": "signature",
-          "description": "Specify the signature whose details you want to retrieve from URLhaus",
           "required": true,
           "visible": true,
           "editable": true,
-          "value": ""
+          "tooltip": "Specify the signature whose details you want to retrieve from URLhaus."
         }
       ],
       "enabled": true,
       "open": false
     },
     {
-      "operation": "get_recent_Payload",
-      "title": "Get Recent Payloads ",
-      "description": "To retrieve a list of recent payloads (recent payloads seen by URLhaus)",
+      "operation": "get_recent_payload",
+      "title": "Get Recent Payloads",
+      "description": "Retrieve a list of recently observed payloads from URLhaus.",
       "category": "investigation",
-      "annotation": "get_recent_Payload",
+      "annotation": "get_recent_payload",
       "output_schema": {
         "payloads": [
           {
@@ -305,13 +304,13 @@
       "parameters": [
         {
           "title": "Limit",
+          "description": "Specify the number of records you want to fetch from the URLhaus.",
           "type": "text",
           "name": "limit",
           "required": true,
-          "description": "Specify the number of records you want to fetch from the URLhaus",
           "visible": true,
           "editable": true,
-          "value": ""
+          "tooltip": "Specify the number of records you want to fetch from the URLhaus."
         }
       ],
       "enabled": true,
@@ -319,8 +318,8 @@
     },
     {
       "operation": "get_host_details",
-      "title": "Get Host Details ",
-      "description": "To retrieve information about a specific host",
+      "title": "Get Host Details",
+      "description": "Retrieve details for a specific host from URLhaus.",
       "category": "investigation",
       "annotation": "get_host_details",
       "output_schema": {
@@ -345,7 +344,6 @@
             "larted": "",
             "takedown_time_seconds": "",
             "tags": [
-              ""
             ]
           }
         ]
@@ -353,22 +351,22 @@
       "parameters": [
         {
           "title": "Host",
+          "description": "Specify the host you whose details you want to retrieve from URLhaus.",
           "type": "text",
           "name": "host",
           "required": true,
-          "description": "Specify the host you whose details you want to retrieve from URLhaus",
           "visible": true,
           "editable": true,
-          "value": ""
+          "tooltip": "Specify the host you whose details you want to retrieve from URLhaus."
         }
       ],
       "enabled": true,
       "open": false
     },
     {
-      "description": "To retrieve information about an URL",
       "operation": "get_url_details",
-      "title": "Get Url Details",
+      "title": "Get URL Details",
+      "description": "Retrieve details for a specific URL from URLhaus.",
       "category": "investigation",
       "annotation": "get_url_details",
       "output_schema": {
@@ -413,22 +411,17 @@
       "parameters": [
         {
           "title": "URL",
+          "description": "Specify the URL whose details you want to retrieve from the URLhaus.",
           "type": "text",
           "name": "URL",
-          "description": "Specify the URL whose details you want to retrieve from the URLhaus",
           "required": true,
           "visible": true,
           "editable": true,
-          "value": ""
+          "tooltip": "Specify the URL whose details you want to retrieve from the URLhaus."
         }
       ],
       "enabled": true,
       "open": false
     }
-  ],
-  "forked_from": "",
-  "cs_approved": false,
-  "cs_compatible": true,
-  "help_online": "https://github.com/fortinet-fortisoar/connector-urlhaus/blob/release/1.0.0/docs/UrlHausConnectorDoc.md",
-  "icon_medium_name": "urlhaus.png"
+  ]
 }
