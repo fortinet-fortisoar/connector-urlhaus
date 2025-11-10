@@ -8,7 +8,7 @@ helping network administrators and security analysts to protect their network an
 
 Connector Version: 1.1.0
 
-Authored By: Fortinet SE
+Authored By: Fortinet
 
 Contributor: IslamkamalBaker, cr0cdev
 
