@@ -10,7 +10,7 @@ Connector Version: 1.1.0
 
 Authored By: Fortinet SE
 
-Contributor:
+Contributor: IslamkamalBaker, cr0cdev
 
 Certified: No
 
